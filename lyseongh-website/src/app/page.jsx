@@ -1,9 +1,10 @@
+import { Hero } from "@/components/features/home-page/hero-section";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <>
-      <h1>Welcome to Lyseon gh.</h1>
-    </>
+    <div>
+      <Hero />
+    </div>
   );
 }
