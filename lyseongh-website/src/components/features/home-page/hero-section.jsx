@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const slides = [
   {
@@ -35,22 +36,39 @@ const slides = [
   }
 ];
 
+const titleVariant = {
+  initial: { y: '-20%', opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
+
+const subtitleVariant = {
+  initial: { y: '20%', opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  transition: { duration: 0.6, ease: "easeOut", delay: 0.2 }
+};
+
+const ctaVariant = {
+  initial: { y: 20, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  transition: { duration: 0.6, ease: "easeOut", delay: 0.4 }
+};
+
 export function Hero() {
   return (
     <section className="relative">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[ Pagination, Autoplay]}
         pagination={{ 
           clickable: true,
           bulletClass: 'swiper-pagination-bullet bg-white/50',
           bulletActiveClass: 'swiper-pagination-bullet-active !bg-white'
         }}
-        navigation
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
         autoplay={{ 
-          delay: 6000,
+          delay: 8000,
           disableOnInteraction: false
         }}
         className="w-full h-screen max-h-[800px]"
@@ -67,21 +85,44 @@ export function Hero() {
             />
             <div className="relative z-20 flex flex-col justify-center items-center h-full text-center px-4 text-white">
               <div className="max-w-3xl space-y-6">
-                <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg">
-                  {slide.title}
-                </h1>
+                <motion.div
+                    variants={titleVariant}
+                    initial="initial"
+                    animate="animate"
+                    transition={titleVariant.transition}
+                >
+                    <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg">
+                    {slide.title}
+                    </h1>
+                </motion.div>
+
                 {slide.subtitle && (
-                  <p className="text-xl md:text-2xl drop-shadow-lg">
-                    {slide.subtitle}
-                  </p>
+                    <motion.div
+                        variants={subtitleVariant}
+                        initial="initial"
+                        animate="animate"
+                        transition={subtitleVariant.transition}
+                    >
+                        <p className="text-xl md:text-2xl drop-shadow-lg">
+                            {slide.subtitle}
+                        </p>
+                    </motion.div>
                 )}
+                
                 {slide.ctaText && slide.ctaLink && (
-                  <Link
-                    href={slide.ctaLink}
-                    className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors mt-6"
-                  >
-                    {slide.ctaText}
-                  </Link>
+                    <motion.div
+                        variants={ctaVariant}
+                        initial="initial"
+                        animate="animate"
+                        transition={ctaVariant.transition}
+                    >
+                        <Link
+                            href={slide.ctaLink}
+                            className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors mt-6"
+                        >
+                            {slide.ctaText}
+                        </Link>
+                    </motion.div>
                 )}
               </div>
             </div>
