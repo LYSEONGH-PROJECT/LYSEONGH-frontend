@@ -38,8 +38,7 @@ const SOCIAL_LINKS = [
     { id: 1, icon: <FontAwesomeIcon icon={faFacebookF} />, href: '/', className: 'text-lg' },
     { id: 2, icon: <FontAwesomeIcon icon={faInstagram} />, href: '/', className: 'text-lg' },
     { id: 3, icon: <FontAwesomeIcon icon={faLinkedinIn} />, href: '/', className: 'text-lg' },
-    { id: 4, icon: <FontAwesomeIcon icon={faWhatsapp} />, href: '/', className: 'text-lg' },
-    { id: 5, icon: <FontAwesomeIcon icon={faYoutube} />, href: '/', className: 'text-lg' },
+    { id: 4, icon: <FontAwesomeIcon icon={faYoutube} />, href: '/', className: 'text-lg' },
 ];
 
 const menuVariants = {
