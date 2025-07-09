@@ -169,7 +169,7 @@ export function Navbar() {
     const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
     return (
-        <header className="w-full fixed top-0 bg-white z-10 shadow-sm">
+        <header className="w-full sticky top-0 bg-white z-10 shadow-sm">
             <CompanyInfo />
             
             <div className="flex items-center justify-between p-4">
