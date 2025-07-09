@@ -1,133 +1,137 @@
-"use client";
+'use client';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import Image from "next/image";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import Image from 'next/image';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Link from "next/link";
-import { motion } from "framer-motion";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const slides = [
   {
     id: 1,
-    imageSrc: "/images/home/cctv-installation.png",
-    title: "Professional CCTV Installation",
-    subtitle: "Secure your property with our advanced surveillance solutions",
-    ctaText: "Get Protected",
-    ctaLink: "/services/cctv-installation"
+    imageSrc: '/images/home/cctv-installation.png',
+    title: 'Professional CCTV Installation',
+    subtitle: 'Secure your property with our advanced surveillance solutions',
+    ctaText: 'Get Protected',
+    ctaLink: '/services/cctv-installation',
   },
   {
     id: 2,
-    imageSrc: "/images/home/dstv-installation.png",
-    title: "DStv Installation Services",
-    subtitle: "Premium satellite TV installation for your home or business",
-    ctaText: "Explore Packages",
-    ctaLink: "/services/dstv-installation"
+    imageSrc: '/images/home/dstv-installation.png',
+    title: 'DStv Installation Services',
+    subtitle: 'Premium satellite TV installation for your home or business',
+    ctaText: 'Explore Packages',
+    ctaLink: '/services/dstv-installation',
   },
   {
     id: 3,
-    imageSrc: "/images/home/electrical-wiring.jpg",
-    title: "Electrical Wiring Experts",
-    subtitle: "Safe and reliable electrical installations",
-    ctaText: "Request Service",
-    ctaLink: "/services/electrical-wiring"
-  }
+    imageSrc: '/images/home/electrical-wiring.jpg',
+    title: 'Electrical Wiring Experts',
+    subtitle: 'Safe and reliable electrical installations',
+    ctaText: 'Request Service',
+    ctaLink: '/services/electrical-wiring',
+  },
 ];
 
 const titleVariant = {
-  initial: { y: '-20%', opacity: 0 },
-  animate: { y: 0, opacity: 1 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  hidden: { y: '-20%', opacity: 0 },
+  visible: { y: 0, opacity: 1 },
 };
 
 const subtitleVariant = {
-  initial: { y: '20%', opacity: 0 },
-  animate: { y: 0, opacity: 1 },
-  transition: { duration: 0.6, ease: "easeOut", delay: 0.2 }
+  hidden: { y: '20%', opacity: 0 },
+  visible: { y: 0, opacity: 1 },
 };
 
 const ctaVariant = {
-  initial: { y: 20, opacity: 0 },
-  animate: { y: 0, opacity: 1 },
-  transition: { duration: 0.6, ease: "easeOut", delay: 0.4 }
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
 };
 
 export function Hero() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <section className="relative">
       <Swiper
-        modules={[ Pagination, Autoplay]}
-        pagination={{ 
+        modules={[Pagination, Autoplay]}
+        pagination={{
           clickable: true,
           bulletClass: 'swiper-pagination-bullet bg-white/50',
-          bulletActiveClass: 'swiper-pagination-bullet-active !bg-white'
+          bulletActiveClass: 'swiper-pagination-bullet-active !bg-white',
         }}
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
-        autoplay={{ 
+        autoplay={{
           delay: 8000,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         }}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="w-full h-screen max-h-[800px]"
       >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id} className="relative">
-            <div className="absolute inset-0 bg-black/40 z-10" />
-            <Image
-              src={slide.imageSrc}
-              alt={slide.title}
-              fill
-              className="object-cover"
-              priority={slide.id === 1}
-            />
-            <div className="relative z-20 flex flex-col justify-center items-center h-full text-center px-4 text-white">
-              <div className="max-w-3xl space-y-6">
-                <motion.div
-                    variants={titleVariant}
-                    initial="initial"
-                    animate="animate"
-                    transition={titleVariant.transition}
-                >
-                    <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg">
-                    {slide.title}
-                    </h1>
-                </motion.div>
+        {slides.map((slide, index) => {
+          const isActive = index === activeIndex;
 
-                {slide.subtitle && (
+          return (
+            <SwiperSlide key={slide.id} className="relative">
+              <div className="absolute inset-0 bg-black/40 z-10" />
+              <Image
+                src={slide.imageSrc}
+                alt={slide.title}
+                fill
+                className="object-cover"
+                priority={slide.id === 1}
+              />
+              <div className="relative z-20 flex flex-col justify-center items-center h-full text-center px-4 text-white">
+                <div className="max-w-3xl space-y-6">
+                    <motion.div
+                        variants={titleVariant}
+                        initial="hidden"
+                        animate="visible"
+                        viewport={{ once: true }}
+                    >
+                        <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg">
+                        {slide.title}
+                        </h1>
+                    </motion.div>
+
+                  {slide.subtitle && (
                     <motion.div
                         variants={subtitleVariant}
-                        initial="initial"
-                        animate="animate"
-                        transition={subtitleVariant.transition}
+                        initial="hidden"
+                        animate="visible"
+                        viewport={{ once: true }}
                     >
-                        <p className="text-xl md:text-2xl drop-shadow-lg">
-                            {slide.subtitle}
-                        </p>
+                      <p className="text-xl md:text-2xl drop-shadow-lg">
+                        {slide.subtitle}
+                      </p>
                     </motion.div>
-                )}
-                
-                {slide.ctaText && slide.ctaLink && (
+                  )}
+
+                  {slide.ctaText && slide.ctaLink && (
                     <motion.div
-                        variants={ctaVariant}
-                        initial="initial"
-                        animate="animate"
-                        transition={ctaVariant.transition}
+                      variants={ctaVariant}
+                      initial="hidden"
+                      animate={isActive ? 'visible' : 'hidden'}
+                      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
                     >
-                        <Link
-                            href={slide.ctaLink}
-                            className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors mt-6"
-                        >
-                            {slide.ctaText}
-                        </Link>
+                      <Link
+                        href={slide.ctaLink}
+                        className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors mt-6"
+                      >
+                        {slide.ctaText}
+                      </Link>
                     </motion.div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </section>
   );

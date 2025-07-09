@@ -28,10 +28,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MOBILE_NAV_LINKS = [
     { id: 1, href: '/', name: 'Home' },
-    { id: 2, href: '/', name: 'Services' },
-    { id: 3, href: '/', name: 'Products' },
-    { id: 4, href: '/', name: 'About' },
-    { id: 5, href: '/', name: 'Contact Us' },
+    { id: 2, href: '/services', name: 'Services' },
+    { id: 3, href: '/products', name: 'Products' },
+    { id: 4, href: '/about', name: 'About' },
+    { id: 5, href: '/contact-us', name: 'Contact Us' },
 ];
 
 const SOCIAL_LINKS = [
@@ -105,7 +105,7 @@ const DesktopNav = () => (
             {MOBILE_NAV_LINKS.map((link) => (
                 <NavigationMenuItem key={link.id}>
                     <NavigationMenuLink asChild>
-                        <Link href={link.href} className="hover:text-blue-600 transition-colors">
+                        <Link href={link.href} className="hover:text-blue-600 transition-colors font-semibold">
                             {link.name}
                         </Link>
                     </NavigationMenuLink>
@@ -190,7 +190,7 @@ export function Navbar() {
 
                 <Link href="tel:+233543794580" className="hidden md:flex items-center gap-x-2 hover:text-blue-600 transition-colors">
                     <FontAwesomeIcon icon={faPhone} />
-                    <span className="text-md">+233 543 794 580</span>
+                    <span className="text-xl font-semibold hover:text-blue-600">+233 543 794 580</span>
                 </Link>
             </div>
             
