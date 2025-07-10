@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { 
     NavigationMenu,
@@ -163,13 +163,24 @@ const MobileMenu = ({ isOpen, onClose }) => (
 
 export function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [hideCompanyInfo, setHideCompanyInfo] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setHideCompanyInfo(window.scrollY > 50);
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
     const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
     return (
-        <header className="w-full sticky top-0 bg-white z-10 shadow-sm">
-            <CompanyInfo />
+        <header className="w-full sticky top-0 bg-white z-50 shadow-sm overflow-hidden ">
+            <div className={`transition-all duration-300 overflow-hidden ${hideCompanyInfo ? "opacity-0 max-h-0" : "opacity-100 max-h-[200px]"}`}>
+                <CompanyInfo />
+            </div>
             
             <div className="flex items-center justify-between p-4">
                 <Link href="/">
