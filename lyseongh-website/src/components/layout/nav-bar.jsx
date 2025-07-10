@@ -316,8 +316,8 @@ const DesktopNav = ({ scrolled }) => (
         <NavigationMenuList className="flex justify-center gap-x-4">
             {MOBILE_NAV_LINKS.map((link) => (
                 <NavigationMenuItem key={link.id}>
-                    <NavigationMenuLink asChild className="bg-none hover:bg-none focus:bg-none focus:text-blue-600 hover:underline">
-                        <Link href={link.href} className={`hover:text-blue-600 -tracking-wider transition-colors font-semibold text-xl ${scrolled ? 'text-gray-800' : 'text-white'}`}>
+                    <NavigationMenuLink asChild className="bg-none hover:bg-none focus:bg-none focus:text-blue-500 p-2">
+                        <Link href={link.href} className={`hover:text-blue-500 -tracking-wider duration-500 ease-in-out transition-colors focus:underline font-bold text-xl ${scrolled ? 'text-gray-800' : 'text-white'}`}>
                             {link.name}
                         </Link>
                     </NavigationMenuLink>
@@ -361,7 +361,7 @@ const MobileMenu = ({ isOpen, onClose }) => (
                     </div>
                     <div className="p-6 flex gap-x-4 border-t mt-4">
                         {SOCIAL_LINKS.map((social) => (
-                            <motion.div whileHover={{ scale: 1.2 }} key={social.id} className="text-2xl p-2">
+                            <motion.div whileHover={{ scale: 1.3 }} key={social.id} className="text-2xl p-2">
                                 <Link href={social.href} className={social.className}>
                                     {social.icon}
                                 </Link>
