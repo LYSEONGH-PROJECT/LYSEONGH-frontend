@@ -361,7 +361,7 @@ const MobileMenu = ({ isOpen, onClose }) => (
                     </div>
                     <div className="p-6 flex gap-x-4 border-t mt-4">
                         {SOCIAL_LINKS.map((social) => (
-                            <motion.div whileHover={{ scale: 1.2 }} key={social.id}>
+                            <motion.div whileHover={{ scale: 1.2 }} key={social.id} className="text-2xl p-2">
                                 <Link href={social.href} className={social.className}>
                                     {social.icon}
                                 </Link>
@@ -410,7 +410,7 @@ export function Navbar() {
                     <FontAwesomeIcon icon={isMobileMenuOpen ? faX : faBars} />
                 </Button>
 
-                <Link href="tel:+233543794580" className={`hidden md:flex items-center gap-x-2 transition-colors duration-300 ${scrolled ? 'text-gray-800 hover:text-blue-600' : 'text-white hover:text-gray-200'}`}>
+                <Link href="tel:+233543794580" className={`hidden md:flex items-center gap-x-2 hover:text-blue-600 transition-colors duration-300 ${scrolled ? 'text-gray-800 ' : 'text-white'}`}>
                     <FontAwesomeIcon icon={faPhone} />
                     <span className="text-xl font-semibold">+233 543 794 580</span>
                 </Link>
