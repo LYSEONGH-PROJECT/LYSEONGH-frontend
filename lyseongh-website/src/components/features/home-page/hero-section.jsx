@@ -12,7 +12,7 @@ import { useState } from 'react';
 const slides = [
   {
     id: 1,
-    imageSrc: '/images/home/cctv-installation.png',
+    imageSrc: '/images/home/cctv-intstallation1.jpg.webp',
     title: 'Professional CCTV Installation',
     subtitle: 'Secure your property with our advanced surveillance solutions',
     ctaText: 'Get Protected',
@@ -60,7 +60,7 @@ export function Hero() {
         modules={[Pagination, Autoplay]}
         pagination={{
           clickable: true,
-          bulletClass: 'swiper-pagination-bullet bg-white/50',
+          bulletClass: 'swiper-pagination-bullet bg-white/70',
           bulletActiveClass: 'swiper-pagination-bullet-active !bg-white',
         }}
         spaceBetween={0}
@@ -78,7 +78,7 @@ export function Hero() {
 
           return (
             <SwiperSlide key={slide.id} className="relative">
-              <div className="absolute inset-0 bg-black/40 z-10" />
+              <div className="absolute inset-0 bg-black/60 z-10" />
               <Image
                 src={slide.imageSrc}
                 alt={slide.title}

@@ -6,7 +6,9 @@ export default function Home() {
   return (
     <div className="relative">
       <Hero />
-      <WhatsappUs />
+      <div className="h-screen">
+
+      </div>
     </div>
   );
 }
