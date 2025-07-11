@@ -121,7 +121,7 @@ export function Hero() {
                     >
                       <Link
                         href={slide.ctaLink}
-                        className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors mt-6"
+                        className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors mt-6"
                       >
                         {slide.ctaText}
                       </Link>
