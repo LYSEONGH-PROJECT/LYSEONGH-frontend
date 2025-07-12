@@ -18,10 +18,10 @@ import { Textarea } from "@/components/ui/textarea";
 
 export function RequestQuoteForm(){
     const formSchema = z.object({
-        firstname: z.string().min(2).max(50),
-        lastname: z.string().min(2).max(50),
-        email: z.email(),
-        phone: z.number(),
+        firstname: z.string().min(2, {message: 'First name must be at least 2 characters.'}).max(50),
+        lastname: z.string().min(2, {message: 'Last name must be at least 2 characters.'}).max(50),
+        email: z.email({ message: 'Please enter a valid email.' }),
+        phone: z.string().min(10, {message: 'Phone number must be at least 10 digits.'}),
         message: z.string()
     });
 
@@ -34,71 +34,75 @@ export function RequestQuoteForm(){
             phone: '',
             message: ''
         }
-    })
+    });
+
+    const onSubmit = (data) => {
+        console.log(data);
+    }
 
     return (
         <Form {...form}>
-            <form action="" className="space-y-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} action="" className="space-y-4">
                 <FormField 
                     control={form.control}
-                    name='First Name'
+                    name='firstname'
                     render={({ field }) => (
                         <FormItem className="">
-                            <FormLabel>First Name</FormLabel>
                             <FormControl>
-                                <Input placeholder="First Name" {...field}/>
+                                <Input placeholder="First Name" {...field} className="py-4 px-6"/>
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
                 <FormField 
                     control={form.control}
-                    name='Last Name'
+                    name='lastname'
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Last Name</FormLabel>
                             <FormControl>
-                                <Input placeholder="Last Name" {...field}/>
+                                <Input placeholder="Last Name" {...field} className="py-4 px-6"/>
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
                 <FormField 
                     control={form.control}
-                    name='Email'
+                    name='email'
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Email</FormLabel>
                             <FormControl>
-                                <Input placeholder="Email" {...field}/>
+                                <Input placeholder="example@gmail.com" {...field} className="py-4 px-6"/>
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
                 <FormField 
                     control={form.control}
-                    name='Phone Number'
+                    name='phone'
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Phone Number</FormLabel>
                             <FormControl>
-                                <Input placeholder="Phone Number" {...field}/>
+                                <Input placeholder="Phone Number" {...field} className="py-4 px-6"/>
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
                 <FormField 
                     control={form.control}
-                    name='Message'
+                    name='message'
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Message</FormLabel>
                             <FormControl>
-                                <Textarea />
+                                <Textarea  className="min-h-[150px] p-4"/>
                             </FormControl>
                         </FormItem>
                     )}
                 />
+                <Button type="submit" className="w-full py-6 text-lg font-semibold bg-black hover:bg-gray-950 transition-colors">Request Quote</Button>
             </form>
         </Form>
     )

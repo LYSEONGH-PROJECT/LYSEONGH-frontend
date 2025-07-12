@@ -1,6 +1,15 @@
+'use client';
+
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBuilding, faEnvelope, faLocationDot, faPhone, faTty } from "@fortawesome/free-solid-svg-icons";
+import { 
+    faInstagram, 
+    faLinkedinIn, 
+    faFacebookF, 
+    faYoutube 
+} from "@fortawesome/free-brands-svg-icons";
+import { motion } from "framer-motion";
 
 const pageLinks = [
     { id: 1, href: '/', name: 'Services' },
@@ -20,9 +29,15 @@ const services = [
     { id: 2, href: '/', name: 'CCTV Maintenance' },
     { id: 3, href: '/', name: 'DSTV installation' },
     { id: 4, href: '/', name: 'Electrical Wiring' },
+    { id: 5, href: '/', name: 'LAN Network Installation' },
 ];
 
-
+const socialLinks = [
+    { id: 1, icon: <FontAwesomeIcon icon={faFacebookF} />, href: '/' },
+    { id: 2, icon: <FontAwesomeIcon icon={faInstagram} />, href: '/' },
+    { id: 3, icon: <FontAwesomeIcon icon={faLinkedinIn} />, href: '/' },
+    { id: 4, icon: <FontAwesomeIcon icon={faYoutube} />, href: '/' },
+];
 
 const FooterColumn = ({ title, links }) => (
     <div className="flex flex-col">
@@ -49,10 +64,11 @@ export const ContactInfo = ({ title, className }) => (
             <div  className="w-20 border-b-3 rounded-full "/>
         </div>
         <div className={className}>
-            <div className="flex gap-x-2 items-center">
-                <FontAwesomeIcon icon={faLocationDot} className="p-2"/>
+            <div className="flex gap-x-2">
+                <FontAwesomeIcon icon={faLocationDot} className="p-2 flex items-start"/>
                 <div>
                     <p>P.O.Box 6017, Accra - North</p>
+                    <p>HM8R+722, Top Base Rd, Gbawe, Ghana</p>
                 </div>
             </div>
             <div className="flex gap-x-2 items-center">
@@ -79,7 +95,18 @@ export function Footer(){
                 <FooterColumn title="Page Links" links={pageLinks}/>
                 <FooterColumn title="Services" links={services}/>
                 <FooterColumn title="Quick Links" links={quickLinks}/>
-                <ContactInfo title="Contacts" className="flex flex-col gap-3 text-white text-lg gap-y-4"/>
+                <div>
+                    <ContactInfo title="Contacts" className="flex flex-col gap-3 text-white text-lg gap-y-4"/>
+                    <div className="py-2 flex gap-x-4 mt-4">
+                        {socialLinks.map((social) => (
+                            <motion.div whileHover={{ scale: 1.3 }} key={social.id} className="text-xl p-2">
+                                <Link href={social.href} className={social.className}>
+                                    {social.icon}
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
             </div>
 
             <div className="max-w-7xl mx-auto border-t border-white/20 py-6 px-2 flex justify-between text-center text-sm text-white">

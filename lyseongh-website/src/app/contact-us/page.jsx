@@ -6,38 +6,68 @@ import { ContactInfo } from "@/components/layout/footer";
 
 export default function Contact(){
     return (
-        <main className="relative">
+        <main className="relative pb-20">
+            {/* Hero Section */}
             <div className="h-[300px] md:h-[500px] relative">
-                <div className="top-section">
-                    <div className="absolute bg-black/70 inset-0 z-10"/>
-                    <Image src="/images/contact/contact-header.jpg" alt="" fill className="object-cover"/>
-                    <h1 className="absolute top-1/2 translate-y-1/2 z-20 font-semibold text-3xl md:text-6xl text-center text-white flex justify-center w-full items-center">Contact Us</h1>
+                <div className="absolute bg-black/70 inset-0 z-10"/>
+                <Image 
+                    src="/images/contact/contact-header.jpg" 
+                    alt="Contact us header image" 
+                    fill 
+                    className="object-cover"
+                    priority
+                />
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center w-full px-4">
+                    <h1 className="font-bold text-4xl md:text-6xl text-white mb-4">Contact Us</h1>
+                    <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+                        Get in touch with our team for any inquiries or quotes
+                    </p>
                 </div>
             </div>
 
-            <div className="h-screen relative">
-                <div className="md:h-[800px] md:max-w-7xl mx-auto p-6 bg-white shadow-xl rounded-sm absolute -top-5 inset-0 -translate-y-10 z-30 md:flex gap-4">
-                    {/* Get In Touch */}
-                    <div className="md:w-1/2">
-                        <ContactInfo title="Get In Touch" className=""/>
-                        <div className="flex gap-x-2 items-center">
-                            <FontAwesomeIcon icon={faClock} className="p-2" />
-                            <div>
-                                <p>Mon – Sat: 8:00 AM – 6:00 PM</p>
-                                <p>Sun & Holidays: Closed</p>
+            {/* Contact Content */}
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="bg-white shadow-xl rounded-lg -mt-16 md:-mt-28 relative z-30 overflow-hidden">
+                    <div className="grid md:grid-cols-3 gap-8 p-8">
+                        {/* Get In Touch */}
+                        <div className="bg-gray-50 p-6 rounded-lg">
+                            <h2 className="text-2xl font-bold mb-6 text-gray-800">Get In Touch</h2>
+                            
+                            <ContactInfo className="space-y-4" />
+                            
+                            <div className="mt-8">
+                                <h3 className="text-xl font-semibold mb-4 text-gray-800 flex items-center gap-2">
+                                    <FontAwesomeIcon icon={faClock} className="" />
+                                    <span>Working Hours</span>
+                                </h3>
+                                <div className="space-y-2 text-gray-600">
+                                    <p className="flex justify-between">
+                                        <span className="font-medium">Mon – Fri:</span> 
+                                        <span>8:00 AM – 4:15 PM</span>
+                                    </p>
+                                    <p className="flex justify-between">
+                                        <span className="font-medium">Sat:</span> 
+                                        <span>7:00 AM – 6:15 PM</span>
+                                    </p>
+                                    <p className="flex justify-between">
+                                        <span className="font-medium">Sun:</span> 
+                                        <span>2:30 PM - 6:15 PM</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                    </div>
-
-                    {/* Request A Quote */}
-                    <div className="md:w-1/2">
-                        <h3 className="text-2xl font-bold md:text-center">Request A Quote</h3>
-                        <div>
-                            <RequestQuoteForm />
+                        {/* Request A Quote */}
+                        <div className="md:col-span-2 md:p-6">
+                            <div className="md:max-w-2xl mx-auto">
+                                <h2 className="text-2xl font-bold mb-2 text-gray-800">Request A Quote</h2>
+                                <p className="text-gray-600 mb-8">
+                                    Fill out the form below and our team will get back to you within 24 hours.
+                                </p>
+                                <RequestQuoteForm />
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </main>

@@ -11,9 +11,8 @@ import { useState } from 'react';
 const topSectionImages = [
     {id: 1, imgSrc: '/images/services/cctv1.jpg',},
     {id: 2, imgSrc: '/images/services/satellite-dish.jpg',},
-    {id: 3, imgSrc: '/images/products/camera1.jpg',},
+    {id: 3, imgSrc: '/images/products/camera2.jpg',},
     {id: 4, imgSrc: '/images/products/ip-cameras.jpg',},
-    {id: 5, imgSrc: '/images/services/cables.jpg',},
 ];
 
 export default function Products(){
