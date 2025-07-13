@@ -41,13 +41,11 @@ const socialLinks = [
 
 const FooterColumn = ({ title, links }) => (
     <div className="flex flex-col">
-        <div className="title flex flex-col">
-            <h3 className="text-2xl font-semibold py-3">{title}</h3>
-        </div>
-        <ul className="space-y-6 py-3">
+        <h3 className="text-2xl font-semibold py-3">{title}</h3>
+        <ul className="space-y-4 py-3">
             {links.map((link) => (
                 <li className="" key={link.id}>
-                    <Link href={link.href} className="md:text-lg text-center">
+                    <Link href={link.href} className="md:text-lg">
                         {link.name}
                     </Link>
                 </li>
@@ -88,9 +86,9 @@ export const ContactInfo = ({ title, className }) => (
 export function Footer(){
     return (
         <footer className="bg-[#090922] relative text-white">
-            
-            <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-6 py-12">
-                <div className="">
+            <svg xmlns="http://www.w3.org/2000/svg" className="absolute -top-21 md:-top-42 inset-0 md:-translate-y-1/2 left-0" viewBox="0 0 1440 320"><path fill="#090922" fillOpacity="1" d="M0,320L120,309.3C240,299,480,277,720,256C960,235,1200,213,1320,202.7L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>
+            <div className="flex flex-col md:flex-row justify-around px-6 py-12 gap-y-4">
+                <div className="max-w-sm">
                     <h4 className="font-bold text-xl text-white py-3">LYSEONGH</h4>
                     <p className="text-gray-300 text-md/10 pt-6">LYSEONGH offers  consulting services in Electrical Wiring and Capacity Building <br /> (Bridging the knowledge gap in the above service areas). <br />
                     Shalom,Peace</p>
@@ -102,8 +100,8 @@ export function Footer(){
                     <ContactInfo title="Contacts" className="flex flex-col gap-3 text-white text-lg gap-y-4"/>
                     <div className="py-2 flex gap-x-4 mt-4">
                         {socialLinks.map((social) => (
-                            <motion.div whileHover={{ scale: 1.3 }} key={social.id} className="text-xl p-2">
-                                <Link href={social.href} className={social.className}>
+                            <motion.div whileHover={{ scale: 1.2 }} key={social.id} className="text-xl p-2 hover:text-blue-500 transition-colors duration-200">
+                                <Link href={social.href} target="_blank" className={social.className}>
                                     {social.icon}
                                 </Link>
                             </motion.div>
@@ -112,7 +110,7 @@ export function Footer(){
                 </div>
             </div>
 
-            <div className="mx-auto border-t border-white/20 py-6 px-2 flex justify-between text-center text-sm text-white">
+            <div className="mx-8 md:mx-12 border-t border-white/20 py-8 px-2 flex justify-between text-center text-sm text-white">
                 <p className="capitealize italic">Lyseon gh</p>
                 <p>All rights reserved. Copyright 2025</p>
             </div>

@@ -26,7 +26,7 @@ export default function Contact(){
             </div>
 
             {/* Contact Content */}
-            <div className="container mx-auto px-4 md:px-6">
+            <div className="container md:h-screen mx-auto px-4 md:px-6">
                 <div className="bg-white shadow-xl rounded-lg -mt-16 md:-mt-28 relative z-30 overflow-hidden">
                     <div className="grid md:grid-cols-3 gap-8 p-8">
                         {/* Get In Touch */}
