@@ -82,7 +82,7 @@ const CompanyInfo = ({ scrolled }) => (
             </div>
             <div className="flex items-center gap-x-2 text-gray-300">
                 <FontAwesomeIcon icon={faLocationDot}/>
-                <span>P.O.Box 6017, Accra - North</span>
+                <span>HM8R+722, Top Base Rd, Gbawe, Ghana</span>
             </div>
         </div>
         <div className="flex gap-x-3">

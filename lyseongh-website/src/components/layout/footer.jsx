@@ -86,9 +86,9 @@ export const ContactInfo = ({ title, className }) => (
 export function Footer(){
     return (
         <footer className="bg-[#090922] relative text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" className="absolute -top-21 md:-top-42 inset-0 md:-translate-y-1/2 left-0" viewBox="0 0 1440 320"><path fill="#090922" fillOpacity="1" d="M0,320L120,309.3C240,299,480,277,720,256C960,235,1200,213,1320,202.7L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" className="absolute -top-21 md:-top-42 inset-0 md:-translate-y-1/2 left-0" viewBox="0 0 1440 320"><path fill="#090922" fillOpacity="1" d="M0,256L80,266.7C160,277,320,299,480,304C640,309,800,299,960,277.3C1120,256,1280,224,1360,208L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
             <div className="flex flex-col md:flex-row justify-around px-6 py-12 gap-y-4">
-                <div className="max-w-sm">
+                <div className="max-w-xs">
                     <h4 className="font-bold text-xl text-white py-3">LYSEONGH</h4>
                     <p className="text-gray-300 text-md/10 pt-6">LYSEONGH offers  consulting services in Electrical Wiring and Capacity Building <br /> (Bridging the knowledge gap in the above service areas). <br />
                     Shalom,Peace</p>
@@ -110,9 +110,9 @@ export function Footer(){
                 </div>
             </div>
 
-            <div className="mx-8 md:mx-12 border-t border-white/20 py-8 px-2 flex justify-between text-center text-sm text-white">
+            <div className="mx-8 md:mx-12 border-t border-white/20 p-10 flex justify-between text-center text-sm text-white">
                 <p className="capitealize italic">Lyseon gh</p>
-                <p>All rights reserved. Copyright 2025</p>
+                <p>Copyright &copy; 2025</p>
             </div>
         </footer>
     )

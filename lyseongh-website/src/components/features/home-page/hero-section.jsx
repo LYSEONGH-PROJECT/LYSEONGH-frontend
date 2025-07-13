@@ -1,10 +1,11 @@
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -57,7 +58,9 @@ export function Hero() {
   return (
     <section className="relative">
       <Swiper
-        modules={[Pagination, Autoplay]}
+        modules={[Pagination, Autoplay, EffectFade]}
+        effect='fade'
+        fadeEffect={{ crossFade: true }}
         pagination={{
           clickable: true,
           bulletClass: 'swiper-pagination-bullet bg-white/70',
@@ -78,7 +81,7 @@ export function Hero() {
 
           return (
             <SwiperSlide key={slide.id} className="relative">
-              <div className="absolute inset-0 bg-black/60 z-10" />
+              <div className="absolute inset-0 bg-black/50 z-10" />
               <Image
                 src={slide.imageSrc}
                 alt={slide.title}
@@ -86,8 +89,8 @@ export function Hero() {
                 className="object-cover"
                 priority={slide.id === 1}
               />
-              <div className="relative z-20 flex flex-col justify-center items-center h-full text-center px-4 text-white">
-                <div className="max-w-3xl space-y-6">
+              <div className="relative z-20 flex flex-col justify-center items-center md:items-start h-full px-6 text-white text-center md:text-left md:mt-10">
+                <div className="max-w-2xl space-y-6 backdrop-blur-sm/10">
                     <motion.div
                         variants={titleVariant}
                         initial="hidden"
@@ -121,7 +124,7 @@ export function Hero() {
                     >
                       <Link
                         href={slide.ctaLink}
-                        className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors mt-6"
+                        className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-sm font-medium transition-colors mt-6"
                       >
                         {slide.ctaText}
                       </Link>
