@@ -57,9 +57,9 @@ const ctaVariant = {
 };
 
 const imageZoom = {
-  initial: { opacity: 0.9, scale: 1.3 },
-  animate: { opacity: 1, scale: 1 },
-  exit: { opacity: 0.9, scale: 1.3 }
+  initial: { scale: 1.3 },
+  animate: { scale: 1 },
+  exit: { scale: 1.3 }
 };
 
 export function Hero() {
