@@ -2,14 +2,14 @@
 
 // import { Cardo } from 'next/font/google';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css/zoom';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, scale } from 'framer-motion';
 import { useState } from 'react';
 
 // const cardo = Cardo({ subsets: ["latin"], weight: '700' })
@@ -56,13 +56,21 @@ const ctaVariant = {
   visible: { y: 0, opacity: 1 },
 };
 
+const imageZoom = {
+  initial: { opacity: 0, scale: 1.3 },
+  animate: { opacity: 1, scale: 1 },
+  exit: { opacity: 0.9, scale: 1.3 }
+};
+
 export function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className="relative">
       <Swiper
-        modules={[Pagination, Autoplay]}
+        modules={[Pagination, Autoplay, EffectFade]}
+        effect='fade'
+        fadeEffect={{ crossFade: true }}
         pagination={{
           clickable: true,
           bulletClass: 'swiper-pagination-bullet bg-white/70',
@@ -84,13 +92,22 @@ export function Hero() {
           return (
             <SwiperSlide key={slide.id} className="relative">
               <div className="absolute inset-0 bg-black/60 z-10" />
-              <Image
-                src={slide.imageSrc}
-                alt={slide.title}
-                fill
-                className="object-cover"
-                priority={slide.id === 1}
-              />
+              <motion.div
+                variants={imageZoom}
+                initial="initial"
+                animate={ isActive ? "animate" : "initial"}
+                exit="exit"
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+                className='absolute inset-0 w-full'
+              >
+                <Image
+                  src={slide.imageSrc}
+                  alt={slide.title}
+                  fill
+                  className="object-cover"
+                  priority={slide.id === 1}
+                />
+              </motion.div>
               <div className="relative z-20 flex flex-col justify-center items-center h-full px-6 text-white text-center md:mt-10">
                 <div className="max-w-6xl space-y-6">
                   <motion.div
