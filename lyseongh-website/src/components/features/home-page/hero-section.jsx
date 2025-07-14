@@ -57,7 +57,7 @@ const ctaVariant = {
 };
 
 const imageZoom = {
-  initial: { opacity: 0, scale: 1.3 },
+  initial: { opacity: 0.9, scale: 1.3 },
   animate: { opacity: 1, scale: 1 },
   exit: { opacity: 0.9, scale: 1.3 }
 };
@@ -97,7 +97,7 @@ export function Hero() {
                 initial="initial"
                 animate={ isActive ? "animate" : "initial"}
                 exit="exit"
-                transition={{ duration: 0.8, ease: 'easeOut' }}
+                transition={{ duration: 0.8 }}
                 className='absolute inset-0 w-full'
               >
                 <Image
