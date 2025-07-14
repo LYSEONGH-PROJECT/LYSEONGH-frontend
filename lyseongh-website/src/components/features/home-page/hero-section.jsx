@@ -6,9 +6,11 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import 'swiper/css/zoom';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { transform } from 'zod';
 
 const slides = [
   {
@@ -52,6 +54,12 @@ const ctaVariant = {
   visible: { y: 0, opacity: 1 },
 };
 
+const imageZoom = {
+  initial: {
+    
+  }
+}
+
 export function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -81,26 +89,30 @@ export function Hero() {
 
           return (
             <SwiperSlide key={slide.id} className="relative">
-              <div className="absolute inset-0 bg-black/50 z-10" />
-              <Image
-                src={slide.imageSrc}
-                alt={slide.title}
-                fill
-                className="object-cover"
-                priority={slide.id === 1}
-              />
-              <div className="relative z-20 flex flex-col justify-center items-center md:items-start h-full px-6 text-white text-center md:text-left md:mt-10">
-                <div className="max-w-2xl space-y-6 backdrop-blur-sm/10">
-                    <motion.div
-                        variants={titleVariant}
-                        initial="hidden"
-                        animate="visible"
-                        viewport={{ once: true }}
-                    >
-                        <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg">
-                        {slide.title}
-                        </h1>
-                    </motion.div>
+              <div className="absolute inset-0 bg-black/60 z-10" />
+              <motion.div
+                
+              >
+                <Image
+                  src={slide.imageSrc}
+                  alt={slide.title}
+                  fill
+                  className="object-cover"
+                  priority={slide.id === 1}
+                />
+              </motion.div>
+              <div className="relative z-20 flex flex-col justify-center items-center h-full px-6 text-white text-center md:mt-10">
+                <div className="max-w-4xl space-y-6">
+                  <motion.div
+                      variants={titleVariant}
+                      initial="hidden"
+                      animate="visible"
+                      viewport={{ once: true }}
+                  >
+                      <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg tracking-wide">
+                      {slide.title}
+                      </h1>
+                  </motion.div>
 
                   {slide.subtitle && (
                     <motion.div
@@ -124,7 +136,7 @@ export function Hero() {
                     >
                       <Link
                         href={slide.ctaLink}
-                        className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-sm font-medium transition-colors mt-6"
+                        className="inline-block px-10 py-4 bg-transparent hover:bg-white hover:text-black text-white border-2 border-white font-semibold uppercase transition-all duration-200 mt-6"
                       >
                         {slide.ctaText}
                       </Link>
