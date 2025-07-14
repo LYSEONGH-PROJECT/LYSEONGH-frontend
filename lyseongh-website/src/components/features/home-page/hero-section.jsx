@@ -1,7 +1,8 @@
 'use client';
 
+// import { Cardo } from 'next/font/google';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -10,7 +11,8 @@ import 'swiper/css/zoom';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { transform } from 'zod';
+
+// const cardo = Cardo({ subsets: ["latin"], weight: '700' })
 
 const slides = [
   {
@@ -54,21 +56,13 @@ const ctaVariant = {
   visible: { y: 0, opacity: 1 },
 };
 
-const imageZoom = {
-  initial: {
-    
-  }
-}
-
 export function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className="relative">
       <Swiper
-        modules={[Pagination, Autoplay, EffectFade]}
-        effect='fade'
-        fadeEffect={{ crossFade: true }}
+        modules={[Pagination, Autoplay]}
         pagination={{
           clickable: true,
           bulletClass: 'swiper-pagination-bullet bg-white/70',
@@ -90,26 +84,22 @@ export function Hero() {
           return (
             <SwiperSlide key={slide.id} className="relative">
               <div className="absolute inset-0 bg-black/60 z-10" />
-              <motion.div
-                
-              >
-                <Image
-                  src={slide.imageSrc}
-                  alt={slide.title}
-                  fill
-                  className="object-cover"
-                  priority={slide.id === 1}
-                />
-              </motion.div>
+              <Image
+                src={slide.imageSrc}
+                alt={slide.title}
+                fill
+                className="object-cover"
+                priority={slide.id === 1}
+              />
               <div className="relative z-20 flex flex-col justify-center items-center h-full px-6 text-white text-center md:mt-10">
-                <div className="max-w-4xl space-y-6">
+                <div className="max-w-6xl space-y-6">
                   <motion.div
                       variants={titleVariant}
                       initial="hidden"
                       animate="visible"
                       viewport={{ once: true }}
                   >
-                      <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg tracking-wide">
+                      <h1 className={`text-4xl md:text-5xl font-bold drop-shadow-lg tracking-wide`}>
                       {slide.title}
                       </h1>
                   </motion.div>
