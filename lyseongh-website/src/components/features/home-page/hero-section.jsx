@@ -13,7 +13,7 @@ import { useState } from 'react';
 const slides = [
   {
     id: 1,
-    imageSrc: '/images/home/cctv-intstallation1.jpg.webp',
+    imageSrc: '/images/home/cctv-installation1.jpg.webp',
     title: 'Professional CCTV Installation',
     subtitle: 'Secure your property with our advanced surveillance solutions',
     ctaText: 'Get Protected',

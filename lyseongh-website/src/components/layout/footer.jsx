@@ -86,7 +86,9 @@ export const ContactInfo = ({ title, className }) => (
 export function Footer(){
     return (
         <footer className="bg-[#090922] relative text-white">
+            
             <svg xmlns="http://www.w3.org/2000/svg" className="absolute -top-21 md:-top-42 inset-0 md:-translate-y-1/2 left-0" viewBox="0 0 1440 320"><path fill="#090922" fillOpacity="1" d="M0,256L80,266.7C160,277,320,299,480,304C640,309,800,299,960,277.3C1120,256,1280,224,1360,208L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+
             <div className="flex flex-col md:flex-row justify-around px-6 py-12 gap-y-4">
                 <div className="max-w-xs">
                     <h4 className="font-bold text-xl text-white py-3">LYSEONGH</h4>
