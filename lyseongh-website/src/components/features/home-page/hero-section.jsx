@@ -59,7 +59,6 @@ const ctaVariant = {
 const imageZoom = {
   initial: { scale: 1.3 },
   animate: { scale: 1 },
-  exit: { scale: 1.3 }
 };
 
 export function Hero() {
@@ -93,11 +92,11 @@ export function Hero() {
             <SwiperSlide key={slide.id} className="relative">
               <div className="absolute inset-0 bg-black/60 z-10" />
               <motion.div
+                key={slide.id}
                 variants={imageZoom}
                 initial="initial"
-                animate={ isActive ? "animate" : "initial"}
-                exit="exit"
-                transition={{ duration: 0.8 }}
+                animate={ isActive ? "animate" : "initial" }
+                transition={{ duration: 0.6, delay: 0.1, ease: 'easeInOut' }}
                 className='absolute inset-0 w-full'
               >
                 <Image
