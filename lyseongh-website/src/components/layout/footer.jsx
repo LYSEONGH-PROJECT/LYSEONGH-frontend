@@ -85,12 +85,12 @@ export const ContactInfo = ({ title, className }) => (
 
 export function Footer(){
     return (
-        <footer className="bg-[#254882] relative text-white">
+        <footer className="bg-blue-950 relative text-white">
 
             <div className="flex flex-col md:flex-row justify-around px-6 py-12 gap-y-4">
                 <div className="max-w-xs">
                     <h4 className="font-bold text-xl text-white py-3">LYSEONGH</h4>
-                    <p className="text-gray-300 text-md/10 pt-6">LYSEONGH offers  consulting services in Electrical Wiring and Capacity Building <br /> (Bridging the knowledge gap in the above service areas). <br />
+                    <p className="text-white text-md/10 pt-6">LYSEONGH offers  consulting services in Electrical Wiring and Capacity Building <br /> (Bridging the knowledge gap in the above service areas). <br />
                     Shalom,Peace</p>
                     <div className="py-2 flex gap-x-4 mt-4">
                         {socialLinks.map((social) => (

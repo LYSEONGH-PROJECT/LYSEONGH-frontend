@@ -29,7 +29,6 @@ const mobileNavLinks = [
     { id: 1, href: '/', name: 'Home' },
     { id: 2, href: '/services', name: 'Services' },
     { id: 3, href: '/products', name: 'Products' },
-    { id: 4, href: '/about', name: 'About' },
     { id: 5, href: '/contact-us', name: 'Contact Us' },
 ];
 

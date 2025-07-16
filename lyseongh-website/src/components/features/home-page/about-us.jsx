@@ -2,34 +2,36 @@
 
 'use client';
 
+import Image from "next/image";
+
 export function AboutUs() {
   return (
     <section className="w-full py-20 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-semibold text-blue-800 mb-8">
-          About Us
-        </h2>
-        <div className="grid md:grid-cols-2 md:flex-row items-center gap-12">
-          <div>
-            <p className="text-md text-gray-700 mb-6">
-              LYSEONGH offers professional consulting services in Electrical Wiring and Capacity Building, 
-              bridging the knowledge gap in these service areas.
-            </p>
-            <p className="text-md text-gray-700">
-              With years of experience, we provide safe and reliable installations for both residential 
-              and commercial properties.
-            </p>
-          </div>
-          <div className="relative aspect-square rounded-full overflow-hidden shadow-xl">
-            {/* <Image
-              src="/images/about/about-us.jpg"
-              alt="About LYSEONGH"
-              fill
-              className="object-cover"
-            /> */}
-          </div>
+        <div className="container mx-auto">
+            <div className="flex flex-col md:flex-row justify-between gap-8">
+                <div className="basis-1/2">
+                    <h2 className="text-lg font-semibold text-blue-600">
+                    About Us
+                    </h2>
+                    <h3 className="text-3xl font-bold mb-4">Our Story</h3>
+                    <p className="text-md md:text-lg text-gray-700 mb-1">
+                    LYSEONGH offers professional consulting services in Electrical Wiring and Capacity Building, 
+                    bridging the knowledge gap in these service areas.
+                    With years of experience, we provide safe and reliable installations for both residential 
+                    and commercial properties.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, quia molestias, aut mollitia facilis, illo quidem commodi ducimus repellat iusto sequi possimus. Facilis voluptatum cupiditate exercitationem cum. Omnis, eos accusamus?
+                    </p>
+                </div>
+                <div className="relative aspect-video overflow-hidden basis-1/2">
+                    <Image 
+                        width={800}
+                        height={400}
+                        src="/images/about/landing-about-us.jpg"
+                        alt=""
+                    />
+                </div>
+            </div>
         </div>
-      </div>
     </section>
   );
 }
