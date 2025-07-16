@@ -6,7 +6,7 @@ import { ContactInfo } from "@/components/layout/footer";
 
 export default function Contact(){
     return (
-        <main className="relative pb-20">
+        <div className="relative pb-20">
             {/* Hero Section */}
             <div className="h-[300px] md:h-[500px] relative">
                 <div className="absolute bg-black/70 inset-0 z-10"/>
@@ -27,7 +27,7 @@ export default function Contact(){
 
             {/* Contact Content */}
             <div className="container md:h-screen mx-auto px-4 md:px-6">
-                <div className="bg-white shadow-xl rounded-lg -mt-16 md:-mt-28 relative z-30 overflow-hidden">
+                <div className="bg-white shadow-xl rounded-lg -mt-12 md:-mt-24 relative z-30 overflow-hidden">
                     <div className="grid md:grid-cols-3 gap-8 p-8">
                         {/* Get In Touch */}
                         <div className="bg-gray-50 p-6 rounded-lg">
@@ -70,6 +70,6 @@ export default function Contact(){
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     )
 }

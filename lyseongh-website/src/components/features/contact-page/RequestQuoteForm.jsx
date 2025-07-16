@@ -73,7 +73,7 @@ export function RequestQuoteForm(){
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input placeholder="example@gmail.com" {...field} className="py-4 px-6"/>
+                                <Input placeholder="Email" {...field} className="py-4 px-6"/>
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -97,7 +97,7 @@ export function RequestQuoteForm(){
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Textarea  className="min-h-[150px] p-4"/>
+                                <Textarea placeholder="Message" className="min-h-[150px] p-4"/>
                             </FormControl>
                         </FormItem>
                     )}

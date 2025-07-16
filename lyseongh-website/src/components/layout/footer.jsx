@@ -11,12 +11,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 
-const pageLinks = [
-    { id: 1, href: '/', name: 'Services' },
-    { id: 2, href: '/', name: 'Products' },
-    { id: 3, href: '/', name: 'About Us' },
-    { id: 4, href: '/', name: 'Contact' },
-];
+// const pageLinks = [
+//     { id: 1, href: '/', name: 'Services' },
+//     { id: 2, href: '/', name: 'Products' },
+//     { id: 3, href: '/', name: 'About Us' },
+//     { id: 4, href: '/', name: 'Contact' },
+// ];
 
 const quickLinks = [
     { id: 1, href: '/', name: 'Privacy Policy' },
@@ -85,21 +85,13 @@ export const ContactInfo = ({ title, className }) => (
 
 export function Footer(){
     return (
-        <footer className="bg-[#090922] relative text-white">
-            
-            {/* <svg xmlns="http://www.w3.org/2000/svg" className="absolute -top-21 md:-top-42 inset-0 md:-translate-y-1/2 left-0" viewBox="0 0 1440 320"><path fill="#090922" fillOpacity="1" d="M0,256L80,266.7C160,277,320,299,480,304C640,309,800,299,960,277.3C1120,256,1280,224,1360,208L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg> */}
+        <footer className="bg-[#254882] relative text-white">
 
             <div className="flex flex-col md:flex-row justify-around px-6 py-12 gap-y-4">
                 <div className="max-w-xs">
                     <h4 className="font-bold text-xl text-white py-3">LYSEONGH</h4>
                     <p className="text-gray-300 text-md/10 pt-6">LYSEONGH offers  consulting services in Electrical Wiring and Capacity Building <br /> (Bridging the knowledge gap in the above service areas). <br />
                     Shalom,Peace</p>
-                </div>
-                {/* <FooterColumn title="Page Links" links={pageLinks}/> */}
-                <FooterColumn title="Services" links={services}/>
-                <FooterColumn title="Quick Links" links={quickLinks}/>
-                <div>
-                    <ContactInfo title="Contacts" className="flex flex-col gap-3 text-white text-lg gap-y-4"/>
                     <div className="py-2 flex gap-x-4 mt-4">
                         {socialLinks.map((social) => (
                             <motion.div whileHover={{ scale: 1.2 }} key={social.id} className="text-xl p-2 hover:text-blue-500 transition-colors duration-200">
@@ -110,12 +102,20 @@ export function Footer(){
                         ))}
                     </div>
                 </div>
+                {/* <FooterColumn title="Page Links" links={pageLinks}/> */}
+                <FooterColumn title="Services" links={services}/>
+                <FooterColumn title="Quick Links" links={quickLinks}/>
+                <div>
+                    <ContactInfo title="Contacts" className="flex flex-col gap-3 text-white text-lg gap-y-4"/>
+                    
+                </div>
             </div>
 
-            <div className="mx-8 md:mx-12 border-t border-white/20 p-10 flex justify-between text-center text-sm text-white">
-                <p className="capitealize italic">Lyseon gh</p>
+            <div className="mx-4 md:mx-6 border-t border-white/20 p-10 flex justify-start md:justify-center text-center text-sm text-white">
                 <p>Copyright &copy; 2025</p>
             </div>
         </footer>
     )
 }
+
+{/* <svg xmlns="http://www.w3.org/2000/svg" className="absolute -top-21 md:-top-42 inset-0 md:-translate-y-1/2 left-0" viewBox="0 0 1440 320"><path fill="#090922" fillOpacity="1" d="M0,256L80,266.7C160,277,320,299,480,304C640,309,800,299,960,277.3C1120,256,1280,224,1360,208L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg> */}
