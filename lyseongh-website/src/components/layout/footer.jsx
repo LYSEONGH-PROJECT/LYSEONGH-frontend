@@ -9,6 +9,7 @@ import {
     faFacebookF, 
     faYoutube 
 } from "@fortawesome/free-brands-svg-icons";
+import { PhoneIcon,  Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
 // const pageLinks = [
@@ -61,20 +62,23 @@ export const ContactInfo = ({ title, className }) => (
         </div>
         <div className={className}>
             <div className="flex gap-x-2">
-                <FontAwesomeIcon icon={faLocationDot} className="p-1 flex items-start"/>
+                {/* <FontAwesomeIcon icon={faLocationDot} className="p-1 flex items-start"/> */}
+                <MapPin />
                 <div>
                     <p>P.O.Box 6017, Accra - North</p>
                     <p>HM8R+722, Top Base Rd, Gbawe, Ghana</p>
                 </div>
             </div>
             <div className="flex gap-x-2 items-center">
-                <FontAwesomeIcon icon={faPhone} className="p-1"/>
+                {/* <FontAwesomeIcon icon={faPhone} className="p-1"/> */}
+                <PhoneIcon fill="white"/>
                 <div>
                     <p>+233543794580</p>
                 </div>
             </div>
             <div className="flex gap-x-2 items-center">
-                <FontAwesomeIcon icon={faEnvelope} className="p-1"/>
+                {/* <FontAwesomeIcon icon={faEnvelope} className="p-1"/> */}
+                <Mail />
                 <div>
                     <p>lyseongh@gmail.com</p>
                 </div>

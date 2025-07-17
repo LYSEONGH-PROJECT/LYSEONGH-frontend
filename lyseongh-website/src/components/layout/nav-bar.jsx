@@ -12,9 +12,7 @@ import { Button } from "../ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
     faBars, 
-    faEnvelope, 
-    faLocationDot, 
-    faPhone, 
+    faEnvelope,  
     faX 
 } from "@fortawesome/free-solid-svg-icons";
 import { 
@@ -24,6 +22,7 @@ import {
     faYoutube 
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PhoneIcon, MapPin, Mail } from "lucide-react";
 
 const mobileNavLinks = [
     { id: 1, href: '/', name: 'Home' },
@@ -76,11 +75,13 @@ const CompanyInfo = ({ scrolled }) => (
     <div className={`hidden md:flex justify-between py-4 px-6 border-b transition-colors duration-500 ${scrolled ? 'opacity-0 max-h-0 hidden' : 'bg-transparent opacity-100 max-h-100'}`}>
         <div className="flex justify-between gap-x-5">
             <div className="flex items-center gap-x-3 text-gray-300">
-                <FontAwesomeIcon icon={faEnvelope} />
+                {/* <FontAwesomeIcon icon={faEnvelope} /> */}
+                <Mail className="w-5 h-5"/>
                 <Link href="mailto:lyseongh@gmail.com">lyseongh@gmail.com</Link>
             </div>
             <div className="flex items-center gap-x-2 text-gray-300">
-                <FontAwesomeIcon icon={faLocationDot}/>
+                {/* <FontAwesomeIcon icon={faLocationDot}/> */}
+                <MapPin className="w-5 h-5"/>
                 <span>HM8R+722, Top Base Rd, Gbawe, Ghana</span>
             </div>
         </div>
@@ -196,7 +197,8 @@ export function Navbar() {
                 </Button>
 
                 <Link href="tel:+233543794580" className={`hidden md:flex items-center gap-x-2 hover:text-blue-600 transition-colors duration-300 ${scrolled ? 'text-gray-800 ' : 'text-white'}`}>
-                    <FontAwesomeIcon icon={faPhone} />
+                    {/* <FontAwesomeIcon icon={faPhone} /> */}
+                    <PhoneIcon className="w-5 h-5 ${}" fill={`${scrolled ? "black " : "white"}`}/>
                     <span className="text-xl font-semibold">+233 543 794 580</span>
                 </Link>
             </div>
