@@ -30,7 +30,7 @@ export default function Contact(){
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center w-full px-4">
                     <div className="space-y-6 animate-fade-in">
                         <h1 className="font-bold text-4xl md:text-7xl text-white mb-4 leading-tight">
-                            Contact <span className="text-blue-600">Us</span>
+                            Contact Us
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
                             Get in touch with our expert team for professional electrical and security solutions
