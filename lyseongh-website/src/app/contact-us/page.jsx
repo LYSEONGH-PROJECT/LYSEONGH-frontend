@@ -45,7 +45,7 @@ export default function Contact(){
                 <div className="bg-white shadow-2xl rounded-2xl -mt-16 md:-mt-32 relative z-30 overflow-hidden">
                     <div className="grid lg:grid-cols-5 gap-0">
                         {/* Contact Info Section */}
-                        <div className="lg:col-span-2 bg-gradient-to-br from-blue-600 to-blue-700 p-8 md:p-12 text-white relative overflow-hidden">
+                        <div className="lg:col-span-2 bg-blue-500 p-8 md:p-12 text-white relative overflow-hidden">
 
                             
                             <div className="relative z-10">
