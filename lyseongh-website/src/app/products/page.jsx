@@ -6,6 +6,7 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { useState } from 'react';
+import { Search } from 'lucide-react';
 
 
 const topSectionImages = [
@@ -15,12 +16,23 @@ const topSectionImages = [
     {id: 4, imgSrc: '/images/products/ip-cameras.jpg',},
 ];
 
+const products = [
+    {
+        id: 1,
+        name: '',
+        category: '',
+        image: '',
+        description: '',
+        inStock: true,
+    },
+];
+
 export default function Products(){
     const [activeIndex, setActiveIndex] = useState(0)
 
     return (
         <section>
-            <div className="">
+            <div className="relative">
                 <div className="top-section">
                     <div className='relative'>
                         <Swiper
@@ -33,7 +45,7 @@ export default function Products(){
                             slidesPerView={1}
                             loop={true}
                             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                            className='h-[300px] md:h-[500px]'
+                            className='h-[300px] md:h-[600px]'
                         >
                             {topSectionImages.map((image, index) => {
                                 const isActive = index === activeIndex
@@ -44,16 +56,39 @@ export default function Products(){
                                     >
                                         <div className="absolute bg-black/60 inset-0 z-10"/>
                                         <Image src={image.imgSrc} alt="" fill className="object-cover"/>
+                                        
                                     </SwiperSlide>
                                 )
                             })}
                         </Swiper>
-                        <h1 className="absolute top-1/2 translate-y-1/2 z-20 font-semibold  text-3xl md:text-6xl text-center text-white flex justify-center w-full items-center">Our Products</h1>
+                        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center w-full px-4 space-y-6 animate-fade-in mt-4'>
+                            <h1 className="font-bold text-white text-4xl md:text-7xl text-center items-center">Our Products</h1>
+                            <p className='text-center text-white text-xl md:text-2xl'>Discover our wide range of electrical products for every need</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="h-screen">
+                <div className="h-screen relative">
+                    {/* Filter Pane */}
+                    <div className='max-w-sm md:max-w-7xl w-full mx-auto p-6 absolute left-1/2 -translate-x-1/2 -translate-y-12 z-20 bg-white rounded-md shadow-xl'>
+                        <h3 className='md:text-xl font-semibold mb-4'>Filters</h3>
 
+                        {/*  */}
+                        <div className='flex flex-col space-y-2'>
+                            <label className='mb-2 text-gray-700 '>
+                                Search
+                            </label>
+                            <div className='border p-2 flex items-center gap-x-4 rounded-md'>
+                                <Search className='text-gray-400' size={16}/>
+                                <input type="text" placeholder='Search products...' className='w-full border-none outline-none'/>
+                            </div>
+                        </div>
+
+                        {/* Categories */}
+                        <div>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     )
