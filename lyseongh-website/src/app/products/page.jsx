@@ -85,7 +85,7 @@ export default function Products(){
 
                         {/* Categories */}
                         <div>
-                            
+
                         </div>
                     </div>
                 </div>
