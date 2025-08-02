@@ -19,7 +19,7 @@ export default function Contact(){
         <div className="relative pb-20 bg-gray-50">
             {/* Enhanced Hero Section */}
             <div className="h-[400px] md:h-[600px] relative overflow-hidden">
-                <div className="absolute bg-black/80 inset-0 z-10"/>
+                <div className="absolute bg-black/70 inset-0 z-10"/>
                 <Image 
                     src="/images/contact/contact-header.jpg" 
                     alt="Contact us header image" 
