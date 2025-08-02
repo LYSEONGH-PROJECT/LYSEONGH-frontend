@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { useState } from 'react';
 import { Search } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 
 const topSectionImages = [
@@ -45,7 +46,7 @@ export default function Products(){
                             slidesPerView={1}
                             loop={true}
                             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                            className='h-[300px] md:h-[600px]'
+                            className='h-[400px] md:h-[600px]'
                         >
                             {topSectionImages.map((image, index) => {
                                 const isActive = index === activeIndex
@@ -70,16 +71,33 @@ export default function Products(){
                 <div className="h-screen relative">
                     {/* Filter Pane */}
                     <div className='max-w-sm md:max-w-7xl w-full mx-auto p-6 absolute left-1/2 -translate-x-1/2 -translate-y-12 z-20 bg-white rounded-md shadow-xl'>
-                        <h3 className='md:text-xl font-semibold mb-4'>Filters</h3>
+                        <h3 className='md:text-xl font-bold mb-4 text-blue-600'>Filters</h3>
 
                         {/*  */}
-                        <div className='flex flex-col space-y-2'>
-                            <label className='mb-2 text-gray-700 '>
+                        <div>
+                            <label className='mb-6 text-gray-700 '>
                                 Search
                             </label>
-                            <div className='border p-2 flex items-center gap-x-4 rounded-md'>
-                                <Search className='text-gray-400' size={16}/>
-                                <input type="text" placeholder='Search products...' className='w-full border-none outline-none'/>
+                            <div className='flex gap-x-4 w-full'>
+                                <div className=''>
+                                    <Select>
+                                        <SelectTrigger className="w-[150px] md:w-[180px]">
+                                            <SelectValue placeholder="All products"/>
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="all-products">All products</SelectItem>
+                                            <SelectItem value="cctvs">CCTVs</SelectItem>
+                                            <SelectItem value="ip-cameras">IP Cameras</SelectItem>
+                                            <SelectItem value="digital-cameras">Digital Cameras</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                <div className='space-y-2 w-full'>
+                                    <div className='border px-2 py-1 flex  items-center gap-x-4 rounded-md'>
+                                        <Search className='text-gray-400' size={16}/>
+                                        <input type="text" placeholder='Search products...' className='w-full border-none outline-none'/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function services(){
     return (
         <section>
-            <div className="h-[300px] md:h-[500px] relative">
+            <div className="h-[400px] md:h-[600px] relative">
                 <div className="top-section">
                     <div className="absolute bg-black/60 inset-0 z-10"/>
                     <Image src="/images/contact/field-engineer.jpg" alt="" fill className="object-cover"/>

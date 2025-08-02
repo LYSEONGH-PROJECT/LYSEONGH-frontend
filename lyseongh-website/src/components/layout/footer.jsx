@@ -61,26 +61,26 @@ export const ContactInfo = ({ title, className }) => (
             <h3 className="text-2xl font-semibold py-3 ">{title}</h3>
         </div>
         <div className={className}>
-            <div className="flex gap-x-2">
+            <div className="flex gap-x-2 items-start">
                 {/* <FontAwesomeIcon icon={faLocationDot} className="p-1 flex items-start"/> */}
-                <MapPin />
+                <MapPin size={16}/>
                 <div>
-                    <p>P.O.Box 6017, Accra - North</p>
-                    <p>HM8R+722, Top Base Rd, Gbawe, Ghana</p>
+                    <p className="text-sm md:text-lg">P.O.Box 6017, Accra - North</p>
+                    <p className="text-sm md:text-lg">HM8R+722, Top Base Rd, Gbawe, Ghana</p>
                 </div>
             </div>
             <div className="flex gap-x-2 items-center">
                 {/* <FontAwesomeIcon icon={faPhone} className="p-1"/> */}
-                <PhoneIcon fill="white"/>
+                <PhoneIcon fill="white" size={16}/>
                 <div>
-                    <p>+233543794580</p>
+                    <p className="text-sm md:text-lg">+233543794580</p>
                 </div>
             </div>
             <div className="flex gap-x-2 items-center">
                 {/* <FontAwesomeIcon icon={faEnvelope} className="p-1"/> */}
-                <Mail />
+                <Mail size={16}/>
                 <div>
-                    <p>lyseongh@gmail.com</p>
+                    <p className="text-sm md:text-lg">lyseongh@gmail.com</p>
                 </div>
             </div>
         </div>
