@@ -104,17 +104,17 @@ export function Services() {
 
         {/* Bottom CTA */}
         <div 
-          className="my-16 text-center"
+          className="mb-16 text-center"
           style={{ 
             backgroundImage: `url("/images/services/engineering-team.jpg")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundBlendMode: "multiply",
-            backgroundColor: '#888888',
+            backgroundColor: '#999999',
             // height: '400px'
             }}>
-          <div className="p-12 lg:p-20 ">
-            <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">
+          <div className="p-14 lg:p-20 ">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Need a Custom Solution?
             </h3>
             <p className="text-white text-md md:text-lg mb-8 max-w-2xl mx-auto">
