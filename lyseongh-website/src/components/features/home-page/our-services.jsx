@@ -61,8 +61,8 @@ export function Services() {
   ];
 
   return (
-    <section className="py-20 lg:py-32 px-6">
-      <div className="container mx-auto max-w-7xl">
+    <section className="">
+      <div className="container mx-auto max-w-7xl py-20 lg:py-24 px-6">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16">
           <div className="space-y-4">
@@ -100,22 +100,32 @@ export function Services() {
             />
           ))}
         </div>
+      </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 border border-gray-100">
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+        <div 
+          className="my-16 text-center"
+          style={{ 
+            backgroundImage: `url("/images/services/engineering-team.jpg")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundBlendMode: "multiply",
+            backgroundColor: '#888888',
+            // height: '400px'
+            }}>
+          <div className="p-12 lg:p-20 ">
+            <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">
               Need a Custom Solution?
             </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-white text-md md:text-lg mb-8 max-w-2xl mx-auto">
               Can't find what you're looking for? Our team can create tailored electrical solutions to meet your specific requirements.
             </p>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+            <Button className="border-2 bg-white/10 rounded-none cursor-pointer hover:bg-white hover:text-black text-white px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
               Contact Our Experts
             </Button>
           </div>
         </div>
-      </div>
+
     </section>
   );
 }

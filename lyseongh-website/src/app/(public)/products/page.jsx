@@ -28,6 +28,33 @@ const products = [
     },
 ];
 
+const categories = [
+    {
+        id: "all",
+        name: "All Products",
+        count: products.length
+    },
+    {
+        id: "CCTVs",
+        name: "CCTVs",
+        count: products.filter((p) => p.category === "CCTVs").length
+    },
+    {
+        id: "ip-cameras",
+        name: "Ip Cameras",
+        count: products.filter((p) => p.category === "ip-cameras").length
+    },
+    {
+        id: "digital-cameras",
+        name: "Digital Cameras",
+        count: products.filter((p) => p.category === "digital-cameras").length
+    },
+]
+
+const ProductCard = () => {
+
+}
+
 export default function Products(){
     const [activeIndex, setActiveIndex] = useState(0)
 
@@ -64,10 +91,11 @@ export default function Products(){
                         </Swiper>
                         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center w-full px-4 space-y-6 animate-fade-in mt-4'>
                             <h1 className="font-bold text-white text-4xl md:text-7xl text-center items-center">Our Products</h1>
-                            <p className='text-center text-white text-xl md:text-2xl'>Discover our wide range of electrical products for every need</p>
+                            <p className='text-center text-white text-xl md:text-2xl'>Discover our wide range of electrical products and supplies for every need</p>
                         </div>
                     </div>
                 </div>
+                
                 <div className="h-screen relative">
                     {/* Filter Pane */}
                     <div className='max-w-sm md:max-w-7xl w-full mx-auto p-6 absolute left-1/2 -translate-x-1/2 -translate-y-12 z-20 bg-white rounded-md shadow-xl'>
@@ -81,14 +109,15 @@ export default function Products(){
                             <div className='flex gap-x-4 w-full'>
                                 <div className=''>
                                     <Select>
-                                        <SelectTrigger className="w-[150px] md:w-[180px]">
+                                        <SelectTrigger className="w-[120px] md:w-[200px]">
                                             <SelectValue placeholder="All products"/>
                                         </SelectTrigger>
                                         <SelectContent>
-                                            <SelectItem value="all-products">All products</SelectItem>
-                                            <SelectItem value="cctvs">CCTVs</SelectItem>
-                                            <SelectItem value="ip-cameras">IP Cameras</SelectItem>
-                                            <SelectItem value="digital-cameras">Digital Cameras</SelectItem>
+                                            {categories.map((category) => (
+                                                <SelectItem key={category.id} value={category.id}>
+                                                    {category.name} ({category.count})
+                                                </SelectItem>
+                                            ))}
                                         </SelectContent>
                                     </Select>
                                 </div>
@@ -101,12 +130,11 @@ export default function Products(){
                             </div>
                         </div>
 
-                        {/* Categories */}
-                        <div>
-
-                        </div>
                     </div>
+                    {/*  */}
+                    
                 </div>
+
             </div>
 
 

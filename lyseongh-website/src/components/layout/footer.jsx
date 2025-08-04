@@ -115,8 +115,8 @@ export function Footer(){
                 </div>
             </div>
 
-            <div className="mx-4 md:mx-6 border-t border-white/20 p-10 flex justify-start md:justify-center text-center text-sm text-white">
-                <p>Copyright &copy; 2025</p>
+            <div className="mx-4 md:mx-6 border-t border-white/20 p-8 flex justify-start md:justify-center text-sm text-white">
+                <p>&copy; 2025 LYSEON GH. All rights reserved.</p>
             </div>
         </footer>
     )
