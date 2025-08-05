@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const ServiceCard = ({ imageSrc, buttonText, serviceTitle, description }) => {
   return (
@@ -42,6 +43,35 @@ const ServiceCard = ({ imageSrc, buttonText, serviceTitle, description }) => {
 
 // Enhanced Services Component
 export function Services() {
+  const subHeadingVariant = {
+    initial: {
+      y: 50,
+      opacity: 0
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+        transition: {
+        duration: 0.3,
+        delay: 0.2,
+        ease: "linear",
+      }
+    },
+  };
+
+  const headingVariant = {
+    initial: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        durastion: 0.3,
+        delay: 0.4,
+        ease: "linear"
+      }
+    }
+  };
+
   const services = [
     {
       imageSrc: "/images/home/cctv-installation.png",
@@ -66,12 +96,24 @@ export function Services() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16">
           <div className="space-y-4">
-            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-700 border border-blue-200">
+            <motion.span 
+              className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-700 border border-blue-200"
+              variants={subHeadingVariant}
+              initial="initial"
+              whileInView={subHeadingVariant.animate}
+              viewport={{ once: true }}
+            >
               Our Services
-            </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            </motion.span>
+            <motion.h2 
+              className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+              variants={headingVariant}
+              initial={headingVariant.initial}
+              whileInView={headingVariant.visible}
+              viewport={{ once: true }}
+            >
               What We <span className="text-blue-600">Offer</span>
-            </h2>
+            </motion.h2>
             <p className="text-lg text-gray-600 max-w-2xl">
               Comprehensive electrical and technical solutions delivered by our expert team of certified professionals.
             </p>

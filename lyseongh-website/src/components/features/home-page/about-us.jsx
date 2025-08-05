@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ArrowRight, Shield, Zap, Users, CheckCircle } from "lucide-react";
 
 // Enhanced AboutUs Component
@@ -12,6 +13,35 @@ export function AboutUs() {
     { icon: Users, text: "Expert Capacity Building" },
   ];
 
+  const subHeadingVariant = {
+    initial: {
+      y: 50,
+      opacity: 0
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+        transition: {
+        duration: 0.3,
+        delay: 0.2,
+        ease: "linear",
+      }
+    },
+  };
+
+  const headingVariant = {
+    initial: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        durastion: 0.3,
+        delay: 0.4,
+        ease: "linear"
+      }
+    }
+  };
+
   return (
     <section className="w-full py-20 lg:py-32 px-6 bg-gradient-to-br from-slate-50 to-blue-50/30">
       <div className="container mx-auto max-w-7xl">
@@ -19,12 +49,24 @@ export function AboutUs() {
           {/* Content Section */}
           <div className="flex-1 space-y-6">
             <div className="space-y-4">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-700 border border-blue-200">
+              <motion.span 
+                className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-700 border border-blue-200"
+                variants={subHeadingVariant}
+                initial={subHeadingVariant.initial}
+                whileInView={subHeadingVariant.animate}
+                viewport={{ once: true }}
+              >
                 About Us
-              </span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              </motion.span>
+              <motion.h2 
+                className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+                variants={headingVariant}
+                initial={headingVariant.initial}
+                whileInView={headingVariant.visible}
+                viewport={{ once: true }}
+              >
                 Our <span className="text-blue-600">Story</span>
-              </h2>
+              </motion.h2>
             </div>
             
             <div className="space-y-6">

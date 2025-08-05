@@ -9,53 +9,52 @@ import { useState } from 'react';
 import { Search } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-
-const topSectionImages = [
-    {id: 1, imgSrc: '/images/services/cctv1.jpg',},
-    {id: 2, imgSrc: '/images/services/satellite-dish.jpg',},
-    {id: 3, imgSrc: '/images/products/camera3.jpg',},
-    {id: 4, imgSrc: '/images/products/ip-cameras.jpg',},
-];
-
-const products = [
-    {
-        id: 1,
-        name: '',
-        category: '',
-        image: '',
-        description: '',
-        inStock: true,
-    },
-];
-
-const categories = [
-    {
-        id: "all",
-        name: "All Products",
-        count: products.length
-    },
-    {
-        id: "CCTVs",
-        name: "CCTVs",
-        count: products.filter((p) => p.category === "CCTVs").length
-    },
-    {
-        id: "ip-cameras",
-        name: "Ip Cameras",
-        count: products.filter((p) => p.category === "ip-cameras").length
-    },
-    {
-        id: "digital-cameras",
-        name: "Digital Cameras",
-        count: products.filter((p) => p.category === "digital-cameras").length
-    },
-]
-
 const ProductCard = () => {
 
 }
 
 export default function Products(){
+    const topSectionImages = [
+        {id: 1, imgSrc: '/images/services/cctv1.jpg',},
+        {id: 2, imgSrc: '/images/services/satellite-dish.jpg',},
+        {id: 3, imgSrc: '/images/products/camera3.jpg',},
+        {id: 4, imgSrc: '/images/products/ip-cameras.jpg',},
+    ];
+
+    const products = [
+        {
+            id: 1,
+            name: '',
+            category: '',
+            image: '',
+            description: '',
+            inStock: true,
+        },
+    ];
+
+    const categories = [
+        {
+            id: "all",
+            name: "All Products",
+            count: products.length
+        },
+        {
+            id: "CCTVs",
+            name: "CCTVs",
+            count: products.filter((p) => p.category === "CCTVs").length
+        },
+        {
+            id: "ip-cameras",
+            name: "Ip Cameras",
+            count: products.filter((p) => p.category === "ip-cameras").length
+        },
+        {
+            id: "digital-cameras",
+            name: "Digital Cameras",
+            count: products.filter((p) => p.category === "digital-cameras").length
+        },
+    ];
+
     const [activeIndex, setActiveIndex] = useState(0)
 
     return (
