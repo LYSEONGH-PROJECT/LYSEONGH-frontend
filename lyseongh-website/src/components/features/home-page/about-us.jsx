@@ -22,9 +22,9 @@ export function AboutUs() {
       y: 0,
       opacity: 1,
         transition: {
-        duration: 0.3,
+        duration: 0.7,
         delay: 0.2,
-        ease: "linear",
+        ease: "easeOut",
       }
     },
   };
@@ -35,9 +35,9 @@ export function AboutUs() {
       y: 0,
       opacity: 1,
       transition: {
-        durastion: 0.3,
-        delay: 0.4,
-        ease: "linear"
+        duration: 0.7,
+        delay: 0.3,
+        ease: "easeOut"
       }
     }
   };

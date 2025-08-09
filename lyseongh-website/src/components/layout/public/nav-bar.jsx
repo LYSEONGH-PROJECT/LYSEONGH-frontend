@@ -7,8 +7,8 @@ import {
     NavigationMenuList,
     NavigationMenuItem,
     NavigationMenuLink,
-} from "../ui/navigation-menu";
-import { Button } from "../ui/button";
+} from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
     faBars, 

@@ -11,10 +11,24 @@ import {
   faHeadset,
   faTools
 } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 import { RequestQuoteForm } from "@/components/features/contact-page/RequestQuoteForm";
-import { ContactInfo } from "@/components/layout/footer";
+import { ContactInfo } from "@/components/layout/public/footer";
 
 export default function Contact(){
+    const headingVariant = {
+        initial: { y: 30, opacity: 0 },
+        visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            delay: 0.3,
+            ease: "easeOut"
+        }
+        }
+    };
+
     return (
         <div className="relative pb-20 bg-gray-50">
             {/* Enhanced Hero Section */}
@@ -28,14 +42,20 @@ export default function Contact(){
                     priority
                 />
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center w-full px-4">
-                    <div className="space-y-6 animate-fade-in">
+                    <motion.div 
+                    className="space-y-6"
+                    variants={headingVariant}
+                    initial={headingVariant.initial}
+                    animate={headingVariant.visible}
+                    viewport={{ once: true }}
+                    >
                         <h1 className="font-bold text-4xl md:text-7xl text-white mb-4 leading-tight">
                             Contact Us
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
                             Get in touch with our expert team for professional electrical and security solutions
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
@@ -106,23 +126,6 @@ export default function Contact(){
                 </div>
             </div>
 
-            {/* Custom Styles */}
-            <style jsx>{`
-                @keyframes fade-in {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-                
-                .animate-fade-in {
-                    animation: fade-in 1s ease-out;
-                }
-            `}</style>
         </div>
     )
 }

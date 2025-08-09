@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { useState } from 'react';
 import { Search } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const ProductCard = () => {
@@ -20,6 +21,19 @@ export default function Products(){
         {id: 3, imgSrc: '/images/products/camera3.jpg',},
         {id: 4, imgSrc: '/images/products/ip-cameras.jpg',},
     ];
+
+    const headingVariant = {
+        initial: { y: 30, opacity: 0 },
+        visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            delay: 0.3,
+            ease: "easeOut"
+        }
+        }
+    };
 
     const products = [
         {
@@ -88,10 +102,16 @@ export default function Products(){
                                 )
                             })}
                         </Swiper>
-                        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center w-full px-4 space-y-6 animate-fade-in mt-4'>
+                        <motion.div 
+                        className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center w-full px-4 space-y-6 mt-4'
+                        variants={headingVariant}
+                        initial={headingVariant.initial}
+                        animate={headingVariant.visible}
+                        viewport={{ once: true }}
+                        >
                             <h1 className="font-bold text-white text-4xl md:text-7xl text-center items-center">Our Products</h1>
                             <p className='text-center text-white text-xl md:text-2xl'>Discover our wide range of electrical products and supplies for every need</p>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
                 
@@ -136,32 +156,6 @@ export default function Products(){
 
             </div>
 
-
-
-
-
-
-
-
-
-
-            
-            <style jsx>{`
-                @keyframes fade-in {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-                
-                .animate-fade-in {
-                    animation: fade-in 1s ease-out;
-                }
-            `}</style>
         </section>
     )
 }
