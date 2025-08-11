@@ -1,10 +1,16 @@
+import DashboardSidebar from "@/components/layout/dashboard/sidebar"
+import { Sidebar, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 
 
 const DashboardLayout = ({ children }) => {
   return (
-    <section>
-      {children}
-    </section>
+    <SidebarProvider>
+      <DashboardSidebar />
+      <main>
+        <SidebarTrigger />
+        {children}
+      </main>
+    </SidebarProvider>
   )
 }
 

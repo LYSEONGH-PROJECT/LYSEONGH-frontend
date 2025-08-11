@@ -31,7 +31,7 @@ export default function Contact(){
 
     return (
         <div className="relative pb-20 bg-gray-50">
-            {/* Enhanced Hero Section */}
+            {/* Hero Section */}
             <div className="h-[400px] md:h-[600px] relative overflow-hidden">
                 <div className="absolute bg-black/70 inset-0 z-10"/>
                 <Image 
@@ -76,12 +76,12 @@ export default function Contact(){
                                     </p>
                                 </div>
                                 
-                                {/* Enhanced Contact Info */}
+                                {/* Contact Info */}
                                 <div className="space-y-6 mb-8">
                                     <ContactInfo className="space-y-6" />
                                 </div>
                                 
-                                {/* Working Hours - Enhanced */}
+                                {/* Working Hours */}
                                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                                     <h3 className="text-xl font-semibold mb-6 flex items-center gap-3">
                                         <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -107,7 +107,7 @@ export default function Contact(){
                             </div>
                         </div>
 
-                        {/* Quote Form Section - Enhanced */}
+                        {/* Quote Form Section */}
                         <div className="lg:col-span-3 p-8 md:p-12 bg-gray-50/50">
                             <div className="max-w-2xl mx-auto">
                                 <div className="mb-8">
@@ -118,7 +118,6 @@ export default function Contact(){
                                     </p>
                                 </div>
                                 
-                                {/* Benefits Cards */}
                                 <RequestQuoteForm />
                             </div>
                         </div>
