@@ -6,7 +6,7 @@ const DashboardLayout = ({ children }) => {
   return (
     <SidebarProvider>
       <DashboardSidebar />
-      <main>
+      <main className="w-full">
         <SidebarTrigger />
         {children}
       </main>
