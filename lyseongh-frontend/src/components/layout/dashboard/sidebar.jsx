@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 const menuItems = [
-  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, href: '/dashboard' },
+  { id: 'home', label: 'Home', icon: LayoutDashboard, href: '/dashboard' },
   { id: 'products', label: 'Products', icon: Package, href: '/dashboard/products' },
   { id: 'services', label: 'Services', icon: Wrench, href: '/dashboard/services' },
   { id: 'projects', label: 'Projects', icon: FileText, href: '/dashboard/projects' },
