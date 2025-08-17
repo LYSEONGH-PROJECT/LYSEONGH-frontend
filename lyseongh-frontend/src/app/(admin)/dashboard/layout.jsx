@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }) => {
       <DashboardSidebar />
       <main className="w-full relative">
         <TopBar />
-        <div>
+        <div className="bg-gray-100 pt-3">
           {children}
         </div>
       </main>

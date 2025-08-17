@@ -21,13 +21,13 @@ import {
   X,
   Home
 } from 'lucide-react';
+import Link from "next/link";
 
 const menuItems = [
   { id: 'home', label: 'Home', icon: LayoutDashboard, href: '/dashboard' },
   { id: 'products', label: 'Products', icon: Package, href: '/dashboard/products' },
   { id: 'services', label: 'Services', icon: Wrench, href: '/dashboard/services' },
   { id: 'projects', label: 'Projects', icon: FileText, href: '/dashboard/projects' },
-  { id: 'media', label: 'Media', icon: Image, href: '/dashboard/media' },
   { id: 'settings', label: 'Settings', icon: Settings, href: '/dashboard/settings' }
 ];
 
@@ -44,10 +44,10 @@ const DashboardSidebar = () => {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.id}>
                   <SidebarMenuButton asChild>
-                    <a href={item.href}>
+                    <Link href={item.href} className="p-2">
                       <item.icon className="text-2xl"/>
                       <span className="">{item.label}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
