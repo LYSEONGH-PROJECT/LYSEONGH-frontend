@@ -6,7 +6,7 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { useState } from 'react';
-import { Search } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
@@ -69,7 +69,8 @@ export default function Products(){
         },
     ];
 
-    const [activeIndex, setActiveIndex] = useState(0)
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [searchValue, setSearchValue] = useState("");
 
     return (
         <section>
@@ -144,6 +145,7 @@ export default function Products(){
                                     <div className='border px-2 py-1 flex  items-center gap-x-4 rounded-md'>
                                         <Search className='text-gray-400' size={16}/>
                                         <input type="text" placeholder='Search products...' className='w-full border-none outline-none'/>
+                                        {/* <X className='text-gray-400'/> */}
                                     </div>
                                 </div>
                             </div>

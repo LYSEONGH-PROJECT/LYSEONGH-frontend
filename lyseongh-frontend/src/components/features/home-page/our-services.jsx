@@ -30,13 +30,6 @@ const ServiceCard = ({ imageSrc, buttonText, serviceTitle, description }) => {
             {description || "Professional installation and maintenance services tailored to your specific needs. Our experienced technicians ensure quality workmanship and customer satisfaction."}
           </p>
         </div>
-        
-        <Button 
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 text-base font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group/btn"
-        >
-          {buttonText}
-          <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-        </Button>
       </div>
     </div>
   );
@@ -138,7 +131,6 @@ export function Services() {
               imageSrc={service.imageSrc}
               serviceTitle={service.serviceTitle}
               description={service.description}
-              buttonText="Get Quote"
             />
           ))}
         </div>
@@ -170,9 +162,11 @@ export function Services() {
           <p className="text-white text-md md:text-lg mb-8 max-w-2xl mx-auto">
             Can't find what you're looking for? Our team can create tailored electrical solutions to meet your specific requirements.
           </p>
-          <Button className="border-2 bg-white/10 rounded-none cursor-pointer hover:bg-white hover:text-black text-white px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
-            Contact Our Experts
-          </Button>
+          <Link href="/contact-us">
+            <Button className="border-2 bg-white/10 rounded-none cursor-pointer hover:bg-white hover:text-black text-white px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+              Contact Our Experts
+            </Button>
+          </Link>
         </div>
       </div>
 
