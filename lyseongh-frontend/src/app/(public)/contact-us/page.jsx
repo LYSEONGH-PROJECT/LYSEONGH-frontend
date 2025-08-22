@@ -59,14 +59,12 @@ export default function Contact(){
                 </div>
             </div>
 
-            {/* Main Content */}
             <div className="container mx-auto px-4 md:px-6 relative">
                 {/* Contact Card */}
                 <div className="bg-white shadow-2xl rounded-2xl -mt-16 md:-mt-32 relative z-30 overflow-hidden">
                     <div className="grid lg:grid-cols-5 gap-0">
                         {/* Contact Info Section */}
                         <div className="lg:col-span-2 bg-blue-500 p-8 md:p-12 text-white relative overflow-hidden">
-
                             
                             <div className="relative z-10">
                                 <div className="mb-8">

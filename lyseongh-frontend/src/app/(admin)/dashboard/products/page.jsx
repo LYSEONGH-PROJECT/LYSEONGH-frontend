@@ -39,7 +39,6 @@ const SearchFilter = () => {
 
     return (
         <div className="bg-white p-4 rounded-md flex flex-wrap gap-4 items-center justify-between shadow-xs">
-            {/* Search Input */}
             <div className="bg-gray-100 flex flex-1 min-w-[250px] items-center gap-3 rounded-sm px-4 py-2 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-1 transition-all">
                 <SearchIcon className="text-gray-500" size={20} aria-hidden="true" />
                 <input 
@@ -50,12 +49,11 @@ const SearchFilter = () => {
                 />
             </div>
 
-            {/* Filters Container */}
             <div className="flex flex-wrap gap-3 items-center">
                 {/* Sort By */}
                 <div className="min-w-[180px]">
                     <Select>
-                        <SelectTrigger className="w-full bg-gray-100 hover:bg-gray-200">
+                        <SelectTrigger className="w-full cursor-pointer">
                             <SelectValue placeholder="Sort by: Default" />
                         </SelectTrigger>
                         <SelectContent>
@@ -70,7 +68,7 @@ const SearchFilter = () => {
 
                 <div className="min-w-[120px]">
                     <Select>
-                        <SelectTrigger className="w-[120px] md:w-[200px]">
+                        <SelectTrigger className="w-[120px] md:w-[200px] cursor-pointer">
                             <SelectValue placeholder="All products"/>
                         </SelectTrigger>
                         <SelectContent>

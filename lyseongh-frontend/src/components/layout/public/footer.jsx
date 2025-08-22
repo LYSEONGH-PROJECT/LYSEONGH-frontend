@@ -89,7 +89,7 @@ export const ContactInfo = ({ title, className }) => (
 
 export function Footer(){
     return (
-        <footer className="bg-blue-950 relative text-white">
+        <footer className="bg-blue-950 rounded-t-3xl relative text-white">
 
             <div className="flex flex-col md:flex-row justify-around px-6 py-12 gap-y-4">
                 <div className="max-w-xs">

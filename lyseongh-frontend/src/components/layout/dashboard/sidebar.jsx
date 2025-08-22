@@ -44,7 +44,7 @@ const DashboardSidebar = () => {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.id}>
                   <SidebarMenuButton asChild>
-                    <Link href={item.href} className="p-2">
+                    <Link href={item.href} className="focus:bg-blue-600 focus:text-white">
                       <item.icon className="text-2xl"/>
                       <span className="">{item.label}</span>
                     </Link>

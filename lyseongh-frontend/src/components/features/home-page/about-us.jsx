@@ -7,11 +7,6 @@ import { ArrowRight, Shield, Zap, Users, CheckCircle } from "lucide-react";
 
 // Enhanced AboutUs Component
 export function AboutUs() {
-  const features = [
-    { icon: Shield, text: "Safe & Reliable Installations" },
-    { icon: Zap, text: "Professional Electrical Services" },
-    { icon: Users, text: "Expert Capacity Building" },
-  ];
 
   const subHeadingVariant = {
     initial: {
@@ -81,19 +76,14 @@ export function AboutUs() {
                 and commercial properties. Our commitment to excellence and customer satisfaction drives 
                 us to deliver innovative solutions that meet the highest industry standards.
               </p>
+              
+              <p className="text-gray-600 leading-relaxed">
+                With years of experience, we provide safe and reliable installations for both residential 
+                and commercial properties. Our commitment to excellence and customer satisfaction drives 
+                us to deliver innovative solutions that meet the highest industry standards.
+              </p>
             </div>
-
-            {/* Features */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-white shadow-sm border border-gray-100">
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <feature.icon className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <span className="text-sm font-medium text-gray-800">{feature.text}</span>
-                </div>
-              ))}
-            </div>
+            
           </div>
 
           {/* Image Section */}

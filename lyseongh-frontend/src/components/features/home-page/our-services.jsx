@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import WhyChooseUs from "./why-choose-us";
 
 const ServiceCard = ({ imageSrc, buttonText, serviceTitle, description }) => {
   return (
@@ -41,7 +42,6 @@ const ServiceCard = ({ imageSrc, buttonText, serviceTitle, description }) => {
   );
 };
 
-// Enhanced Services Component
 export function Services() {
   const subHeadingVariant = {
     initial: {
@@ -144,35 +144,37 @@ export function Services() {
         </div>
       </div>
 
-        {/* Bottom CTA */}
-        <div 
-          className="mb-16 text-center"
-          style={{ 
-            backgroundImage: `url("/images/services/engineering-team.jpg")`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundBlendMode: "multiply",
-            backgroundColor: '#999999',
-            // height: '400px'
-            }}>
-          <div className="p-14 lg:p-20 ">
-            <motion.h3
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
-            variants={subHeadingVariant}
-            initial={subHeadingVariant.initial}
-            animate={subHeadingVariant.animate}
-            viewport={{ once: true }}
-            >
-              Need a Custom Solution?
-            </motion.h3>
-            <p className="text-white text-md md:text-lg mb-8 max-w-2xl mx-auto">
-              Can't find what you're looking for? Our team can create tailored electrical solutions to meet your specific requirements.
-            </p>
-            <Button className="border-2 bg-white/10 rounded-none cursor-pointer hover:bg-white hover:text-black text-white px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
-              Contact Our Experts
-            </Button>
-          </div>
+      <WhyChooseUs />
+
+      {/* Bottom CTA */}
+      <div 
+        className="mb-16 text-center"
+        style={{ 
+          backgroundImage: `url("/images/services/engineering-team.jpg")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundBlendMode: "multiply",
+          backgroundColor: '#999999',
+          // height: '400px'
+          }}>
+        <div className="p-14 lg:p-20 ">
+          <motion.h3
+          className="text-3xl md:text-4xl font-bold text-white mb-4"
+          variants={subHeadingVariant}
+          initial={subHeadingVariant.initial}
+          animate={subHeadingVariant.animate}
+          viewport={{ once: true }}
+          >
+            Need a Custom Solution?
+          </motion.h3>
+          <p className="text-white text-md md:text-lg mb-8 max-w-2xl mx-auto">
+            Can't find what you're looking for? Our team can create tailored electrical solutions to meet your specific requirements.
+          </p>
+          <Button className="border-2 bg-white/10 rounded-none cursor-pointer hover:bg-white hover:text-black text-white px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+            Contact Our Experts
+          </Button>
         </div>
+      </div>
 
     </section>
   );
