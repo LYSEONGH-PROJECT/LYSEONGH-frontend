@@ -40,8 +40,22 @@ export function RequestQuoteForm(){
         }
     });
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        try {
+            const res = await fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            })
+
+            if(!res.ok) throw new Error('failed to submit form');
+
+            const result = await res.json();
+            console.log(result);
+            setIsModalOpen(true)
+        } catch(error) {
+            console.error('Error submitting contact form:', error);
+        }
     }
 
     return (
