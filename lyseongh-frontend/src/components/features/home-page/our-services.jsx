@@ -147,7 +147,9 @@ export function Services() {
           backgroundPosition: 'center',
           backgroundBlendMode: "multiply",
           backgroundColor: '#999999',
-          // height: '400px'
+          width: "100%",
+          height: '400px',
+          backgroundAttachment: 'fixed'
           }}>
         <div className="p-14 lg:p-20 ">
           <motion.h3
@@ -157,7 +159,7 @@ export function Services() {
           animate={subHeadingVariant.animate}
           viewport={{ once: true }}
           >
-            Need a Custom Solution?
+            Schedule an appointment
           </motion.h3>
           <p className="text-white text-md md:text-lg mb-8 max-w-2xl mx-auto">
             Can't find what you're looking for? Our team can create tailored electrical solutions to meet your specific requirements.

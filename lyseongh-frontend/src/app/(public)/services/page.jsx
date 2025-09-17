@@ -1,6 +1,8 @@
 'use client';
 
+import Link from "next/link";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 import Image from "next/image"
 import { motion } from 'framer-motion';
@@ -14,7 +16,7 @@ const ServiceCard = ({ title, description, imageSrc, services, index }) => {
     };
 
     return (
-        <div className={`flex flex-col lg:flex-row gap-16 mb-4 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+        <div className={`flex flex-col lg:flex-row gap-16 py-4 mb-4 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
             {/* Content Section */}
             <div className="flex-1">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-4">{title}</h2>
@@ -26,7 +28,7 @@ const ServiceCard = ({ title, description, imageSrc, services, index }) => {
                         <div key={serviceIndex} className="border-b border-gray-700">
                             <button
                                 onClick={() => toggleService(serviceIndex)}
-                                className="w-full flex justify-between items-center py-4 text-left hover:text-blue-400 transition-colors cursor-pointer"
+                                className="w-full flex justify-between items-center py-4 text-left hover:text-blue-400 transition-all duration-400 ease-in-out cursor-pointer"
                             >
                                 <div className="flex items-center gap-3">
                                     <service.icon className="w-5 h-5 text-blue-400" />
@@ -48,9 +50,9 @@ const ServiceCard = ({ title, description, imageSrc, services, index }) => {
             </div>
             
             {/* Image Section */}
-            <div className="flex-1">
-                <div className="relative h-80 lg:h-96 rounded-lg overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 z-10"></div>
+            <div className="flex-1 flex items-center">
+                <div className="relative rounded-lg overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-800/20 to-blue-800/20 z-10"></div>
                     <img 
                         src={imageSrc} 
                         alt={title}
@@ -97,7 +99,7 @@ export default function services(){
             id: "installation-maintenance",
             title: "Installation & Maintenance",
             description: "Transform your business with powerful electrical solutions and strategic consulting services. We help you build a strong electrical infrastructure.",
-            imageSrc: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            imageSrc: "/images/contact/field-engineer.jpg",
             services: [
                 {
                     name: "Electrical Installation",
@@ -186,10 +188,10 @@ export default function services(){
                 </div>
             </div>
 
-            <div className="w-full py-20 lg:py-32 px-6">
-                <div className="container mx-auto max-w-7xl">
-                    <section className="py-10 lg:py-32 px-6">
-                        <div className="container mx-auto max-w-7xl my-4 p-4">
+            <div className="w-full py-12 lg:py-14 px-2">
+                <div className="container mx-auto max-w-7xl lg:max-w-full">
+                    <section className="py-6 lg:py-12 px-2">
+                        <div className="container mx-auto my-4 p-4 gap-4">
                             {services.map((service, index) => (
                                 <ServiceCard 
                                     key={service.id}
@@ -203,6 +205,37 @@ export default function services(){
                         </div>
                     </section>
                 </div>
+            </div>
+
+            <div className="px-6">
+                <div 
+                    className="mb-16 text-center rounded-lg"
+                    style={{ 
+                    backgroundImage: `url("/images/services/engineering-team.jpg")`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundBlendMode: "multiply",
+                    backgroundColor: '#999999',
+                    width: "100%",
+                    height: '400px',
+                    backgroundAttachment: 'fixed'
+                    }}>
+                    <div className="p-14 lg:p-20 ">
+                    <h3
+                    className="text-3xl md:text-4xl font-bold text-white mb-4"
+                    >
+                        Need a custom solution?
+                    </h3>
+                    <p className="text-white text-md md:text-lg mb-8 max-w-2xl mx-auto">
+                        Can't find what you're looking for? Our team can create tailored electrical solutions to meet your specific requirements.
+                    </p>
+                    <Link href="/contact-us">
+                        <Button className="border-2 bg-white/10 rounded-none cursor-pointer hover:bg-white hover:text-black text-white px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+                        Contact Our Experts
+                        </Button>
+                    </Link>
+                </div>
+            </div>
             </div>
         </section>
     )

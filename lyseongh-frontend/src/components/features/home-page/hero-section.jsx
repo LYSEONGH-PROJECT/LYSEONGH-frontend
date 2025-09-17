@@ -101,7 +101,7 @@ export function Hero() {
 
   return (
     <section className="relative">
-      <div className='relative w-full h-screen max-h-[800px] overflow-hidden'>
+      <div className='relative w-full h-screen  overflow-hidden'>
         <AnimatePresence mode='popLayout' custom={direction}>
           <motion.div
             key={currentSlide.id}

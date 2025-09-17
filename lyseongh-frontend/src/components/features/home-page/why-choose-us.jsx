@@ -70,29 +70,28 @@ const WhyChooseUs = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6">
                         {features.map((feature, index) => (
-                        <div key={index} className="py-6 px-4 rounded-lg bg-white shadow-sm cursor-pointer hover:bg-blue-700 hover:text-white hover:shadow-xl transition-all duration-300 linear delay-75">
-                            <div className="flex items-center space-x-3 ">
-                                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                                <feature.icon className="w-5 h-5 text-blue-600" />
-                                </div>
-                                <span className="text-sm font-medium ">{feature.head}</span>
-                            </div>
-                            <p className="text-sm pt-2">{feature.text}</p>
-                        </div>
+                          <div key={index} className="py-6 px-4 rounded-lg bg-white shadow-sm cursor-pointer hover:bg-blue-500 hover:text-white hover:shadow-xl transition-all duration-300 linear delay-75">
+                              <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
+                                <feature.icon className="w-8 h-8 text-blue-600" />
+                              </div>
+                              <span className="text-md md:text-lg font-medium ">{feature.head}</span>
+                              <p className="text-md pt-2">{feature.text}</p>
+                          </div>
                         ))}
                     </div>
                 </div>
 
                 <div className="flex-1 relative">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-700">
+                    <div className="absolute bg-black/40 inset-0 z-10"/>
                     <Image
                         width={800}
                         height={600}
-                        src="/images/about/landing-about-us.jpg"
+                        src="/images/home/h1-banner03.jpg"
                         alt="LYSEONGH professional electrical services"
-                        className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-cover"
                     />
-                    </div>
+                  </div>
                 </div>
             </div>
         </div>
