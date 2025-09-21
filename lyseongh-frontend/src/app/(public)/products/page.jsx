@@ -6,28 +6,77 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { useState } from 'react';
-import { Search, X } from 'lucide-react';
+import { EyeIcon, Search, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-// Fixed ProductCard component - props should be passed as an object
-const ProductCard = ({ productImage, productName, price }) => {
+const ProductDetails = ({ product, isOpen, onClose }) => {
+    if (!isOpen) return null;
+
     return (
-        <div className='rounded-lg border-none w-[400px] h-[400px] overflow-hidden'>
-            <div className='border-none h-[70%]'>
+        <div className='fixed inset-0 z-50 flex items-center justify-center p-4'>
+            <div 
+                className="fixed inset-0 bg-black/80 bg-opacity-50 transition-opacity"
+                onClick={onClose}
+            />
+            
+            <div className='relative bg-white rounded-lg shadow-xl w-full max-w-5xl max-h-[90vh] overflow-y-auto transform transition-all duration-200 ease-out z-50'>
+                <button
+                    onClick={onClose}
+                    className="absolute right-4 cursor-pointer top-4 p-1 text-white hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100 shadow-xl z-10"
+                >
+                    <X size={20} />
+                </button>
+
+                <div className='h-64 relative'>
+                    <Image 
+                        className='w-full h-full object-cover'
+                        src={product.productImage}
+                        alt={product.productName}
+                        fill
+                    />
+                </div>
+                <div className='relative p-6'>
+                    <div className='border-b pb-4 flex flex-col gap-y-2'>
+                        <h3 className='text-2xl font-bold'>{product.productName}</h3>
+                        <p className='text-xl font-semibold'>${product.price}</p>
+                    </div>
+                    <p className='mt-4 text-gray-600'>{product.description || 'No description available.'}</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+const ProductCard = ({ product, onShowDetails }) => {
+    const [showDetailsButton, setShowDetailsButton] = useState(false);
+
+    return (
+        <div 
+            className='rounded-lg border-none w-full max-w-[400px] h-[400px] overflow-hidden relative bg-white shadow-md hover:shadow-lg transition-shadow'
+            onMouseEnter={() => setShowDetailsButton(true)}
+            onMouseLeave={() => setShowDetailsButton(false)}
+            onClick={() => onShowDetails(product)}
+        >
+            {showDetailsButton && 
+                <div 
+                    className='bg-white w-10 h-10 rounded-full p-2 shadow-xl absolute right-2 top-2 cursor-pointer transition-all flex items-center justify-center hover:bg-gray-100 z-10'
+                    onClick={() => onShowDetails(product)}
+                >
+                    <EyeIcon className='w-5 h-5'/>
+                </div>
+            }
+            <div className='border-none h-[70%] relative'>
                 <Image 
                     className='w-full h-full object-cover'
-                    src={productImage}
-                    alt={productName}
-                    width={400}
-                    height={400}
+                    src={product.productImage}
+                    alt={product.productName}
+                    fill
                 />
             </div>
-            <div className='text-center px-4 flex flex-col space-y-2 gap-y-2 bg-blue-500 text-white h-[30%] justify-center'>
-   
-                    <p className='text-xl font-semibold'>{productName}</p>
-                    <span className='font-medium'>{`$${price}`}</span>
-
+            <div className='text-center px-4 flex flex-col space-y-2 gap-y-2 bg-gray-200 h-[30%] justify-center'>
+                <p className='text-xl font-semibold'>{product.productName}</p>
+                <span className='font-medium'>${product.price}</span>
             </div>
         </div>
     )
@@ -60,7 +109,7 @@ export default function Products(){
             productName: 'Dstv Dishes',
             category: 'dstv',
             productImage: '/images/products/dstv-dish1.jpg',
-            description: '',
+            description: 'High-quality DSTV satellite dishes for clear signal reception.',
             price: '250',
             inStock: true,
         },
@@ -69,7 +118,7 @@ export default function Products(){
             productName: 'CCTV Camera',
             category: 'CCTVs',
             productImage: '/images/products/camera3.jpg',
-            description: '',
+            description: 'Advanced CCTV cameras with night vision and motion detection.',
             price: '120',
             inStock: true,
         },
@@ -78,7 +127,7 @@ export default function Products(){
             productName: 'IP Camera',
             category: 'ip-cameras',
             productImage: '/images/products/ip-cameras.jpg',
-            description: '',
+            description: 'Modern IP cameras with remote access and high-resolution recording.',
             price: '180',
             inStock: true,
         },
@@ -87,7 +136,7 @@ export default function Products(){
             productName: 'Digital Camera',
             category: 'digital-cameras',
             productImage: '/images/products/camera3.jpg',
-            description: '',
+            description: 'Professional digital cameras with multiple lenses and features.',
             price: '300',
             inStock: true,
         },
@@ -96,7 +145,7 @@ export default function Products(){
             productName: 'Dstv Dishes Pro',
             category: 'dstv',
             productImage: '/images/products/dstv-dish1.jpg',
-            description: '',
+            description: 'Premium DSTV dishes with enhanced signal strength and durability.',
             price: '350',
             inStock: true,
         },
@@ -105,7 +154,7 @@ export default function Products(){
             productName: 'Advanced CCTV',
             category: 'CCTVs',
             productImage: '/images/products/camera3.jpg',
-            description: '',
+            description: 'Advanced CCTV systems with AI-powered detection and analytics.',
             price: '220',
             inStock: true,
         },
@@ -143,8 +192,19 @@ export default function Products(){
     const [searchValue, setSearchValue] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("all");
     const [filteredProducts, setFilteredProducts] = useState(products);
+    const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
-    // Function to handle category change
+    const handleShowDetails = (product) => {
+        setSelectedProduct(product);
+        setIsDetailsOpen(true);
+    };
+
+    const handleCloseDetails = () => {
+        setIsDetailsOpen(false);
+        setSelectedProduct(null);
+    };
+
     const handleCategoryChange = (categoryId) => {
         setSelectedCategory(categoryId);
         if (categoryId === "all") {
@@ -154,7 +214,6 @@ export default function Products(){
         }
     };
 
-    // Function to handle search
     const handleSearchChange = (e) => {
         const value = e.target.value;
         setSearchValue(value);
@@ -200,7 +259,7 @@ export default function Products(){
                                             alt="" 
                                             fill 
                                             className="object-cover"
-                                            priority={index === 0} // Add priority for LCP
+                                            priority={index === 0}
                                         />
                                     </SwiperSlide>
                                 )
@@ -274,15 +333,14 @@ export default function Products(){
                     </div>
 
                     {/* Products Grid */}
-                    <div className='max-w-7xl mx-auto mt-32 px-4'>
+                    <div className='max-w-7xl mx-auto mt-32 px-6'>
                         {filteredProducts.length > 0 ? (
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mx-4'>
                                 {filteredProducts.map((product) => (
                                     <ProductCard
                                         key={product.id}
-                                        productImage={product.productImage}
-                                        productName={product.productName}
-                                        price={product.price}
+                                        product={product}
+                                        onShowDetails={handleShowDetails}
                                     />
                                 ))}
                             </div>
@@ -294,6 +352,14 @@ export default function Products(){
                     </div>
                 </div>
             </div>
+
+            {selectedProduct && (
+                <ProductDetails 
+                    product={selectedProduct} 
+                    isOpen={isDetailsOpen} 
+                    onClose={handleCloseDetails}
+                />
+            )}
         </section>
     )
 }
