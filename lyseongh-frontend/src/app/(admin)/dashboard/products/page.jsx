@@ -1,18 +1,24 @@
+"use client";
+
+import { useState } from "react";
 import { Plus, SearchIcon } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 
-const SearchFilter = () => {
-    const products = [
-        {
-            id: 1,
-            name: '',
-            category: '',
-            image: '',
-            description: '',
-            inStock: true,
-        },
-    ];
+const products = [
+    {
+        id: 1,
+        name: '',
+        category: '',
+        image: '',
+        description: '',
+        inStock: true,
+    },
+];
+
+const SearchFilter = ({ onSearch,  }) => {
+    const [searchTerm, setSearchTerm] = useState("");
+
 
     const categories = [
         {
@@ -37,6 +43,11 @@ const SearchFilter = () => {
         },
     ];
 
+    const handleSearch = (value) => {
+        setSearchTerm(value)
+        onSearch(value)
+    }
+
     return (
         <div className="bg-white p-4 rounded-md flex flex-wrap gap-4 items-center justify-between shadow-xs">
             <div className="bg-gray-100 flex flex-1 min-w-[250px] items-center gap-3 rounded-sm px-4 py-2 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-1 transition-all">
@@ -46,29 +57,16 @@ const SearchFilter = () => {
                     placeholder="Search products..." 
                     className="outline-none border-none bg-transparent text-gray-700 w-full placeholder-gray-400"
                     aria-label="Search products"
+                    value={searchTerm}
+                    onChange={(e) => handleSearch(e.target.value)}
                 />
             </div>
 
             <div className="flex flex-wrap gap-3 items-center">
-                {/* Sort By */}
-                <div className="min-w-[180px]">
-                    <Select>
-                        <SelectTrigger className="w-full cursor-pointer">
-                            <SelectValue placeholder="Sort by: Default" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="default">Default</SelectItem>
-                            <SelectItem value="price-asc">Price: Low to High</SelectItem>
-                            <SelectItem value="price-desc">Price: High to Low</SelectItem>
-                            <SelectItem value="name-asc">Name: A-Z</SelectItem>
-                            <SelectItem value="name-desc">Name: Z-A</SelectItem>
-                        </SelectContent>
-                    </Select>
-                </div>
 
                 <div className="min-w-[120px]">
                     <Select>
-                        <SelectTrigger className="w-[120px] md:w-[200px] cursor-pointer">
+                        <SelectTrigger className="w-[120px] md:w-[300px] cursor-pointer">
                             <SelectValue placeholder="All products"/>
                         </SelectTrigger>
                         <SelectContent>

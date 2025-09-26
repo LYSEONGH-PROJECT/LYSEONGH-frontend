@@ -23,7 +23,7 @@ const ProductDetails = ({ product, isOpen, onClose }) => {
             <div className='relative bg-white rounded-lg shadow-xl w-full max-w-5xl max-h-[90vh] overflow-y-auto transform transition-all duration-200 ease-out z-50'>
                 <button
                     onClick={onClose}
-                    className="absolute right-4 cursor-pointer top-4 p-1 text-white hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100 shadow-xl z-10"
+                    className="absolute right-4 cursor-pointer top-4 p-1 bg-gray-200 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100 shadow-xl z-10"
                 >
                     <X size={20} />
                 </button>
@@ -53,7 +53,7 @@ const ProductCard = ({ product, onShowDetails }) => {
 
     return (
         <div 
-            className='rounded-lg border-none w-full max-w-[400px] h-[400px] overflow-hidden relative bg-white shadow-md hover:shadow-lg transition-shadow'
+            className='rounded-lg border-none h-[500px] w-full max-w-xl relative bg-transparent shadow-md hover:shadow-lg transition-shadow'
             onMouseEnter={() => setShowDetailsButton(true)}
             onMouseLeave={() => setShowDetailsButton(false)}
             onClick={() => onShowDetails(product)}
@@ -66,17 +66,18 @@ const ProductCard = ({ product, onShowDetails }) => {
                     <EyeIcon className='w-5 h-5'/>
                 </div>
             }
-            <div className='border-none h-[70%] relative'>
+            <div className='border-none h-[80%] relative'>
                 <Image 
                     className='w-full h-full object-cover'
                     src={product.productImage}
                     alt={product.productName}
                     fill
+                    sizes=''
                 />
             </div>
-            <div className='text-center px-4 flex flex-col space-y-2 gap-y-2 bg-gray-200 h-[30%] justify-center'>
-                <p className='text-xl font-semibold'>{product.productName}</p>
-                <span className='font-medium'>${product.price}</span>
+            <div className='text-center px-4 py-2 font-bold space-y-1 bg-transparent'>
+                <p className='text-blue-500 text-2xl'>{product.productName}</p>
+                <span className='text-lg'>${product.price}.00</span>
             </div>
         </div>
     )
@@ -86,7 +87,7 @@ export default function Products(){
     const topSectionImages = [
         {id: 1, imgSrc: '/images/services/cctv1.jpg',},
         {id: 2, imgSrc: '/images/services/satellite-dish.jpg',},
-        {id: 3, imgSrc: '/images/products/camera3.jpg',},
+        {id: 3, imgSrc: '/images/products/access-control.jpeg',},
         {id: 4, imgSrc: '/images/products/ip-cameras.jpg',},
     ];
 
@@ -106,56 +107,119 @@ export default function Products(){
     const products = [
         {
             id: 1,
-            productName: 'Dstv Dishes',
+            productName: 'Dstv Dish plus Decoder',
             category: 'dstv',
-            productImage: '/images/products/dstv-dish1.jpg',
+            productImage: '/images/products/dstv-decoder-plus-dish.jpeg',
             description: 'High-quality DSTV satellite dishes for clear signal reception.',
-            price: '250',
+            price: 250,
             inStock: true,
         },
         {
             id: 2,
-            productName: 'CCTV Camera',
+            productName: 'HIKVISION CCTV Camera',
             category: 'CCTVs',
-            productImage: '/images/products/camera3.jpg',
+            productImage: '/images/products/hikvision-cctv-camera.jpeg',
             description: 'Advanced CCTV cameras with night vision and motion detection.',
-            price: '120',
+            price: 120,
             inStock: true,
         },
         {
             id: 3,
-            productName: 'IP Camera',
+            productName: 'HIKVISION DVR',
             category: 'ip-cameras',
-            productImage: '/images/products/ip-cameras.jpg',
+            productImage: '/images/products/hikvision-dvr.jpeg',
             description: 'Modern IP cameras with remote access and high-resolution recording.',
-            price: '180',
+            price: 180,
             inStock: true,
         },
         {
             id: 4,
-            productName: 'Digital Camera',
+            productName: 'HIKVISION NVR',
             category: 'digital-cameras',
-            productImage: '/images/products/camera3.jpg',
+            productImage: '/images/products/hikvision-nvr.jpeg',
             description: 'Professional digital cameras with multiple lenses and features.',
-            price: '300',
+            price: 300,
             inStock: true,
         },
         {
             id: 5,
-            productName: 'Dstv Dishes Pro',
+            productName: 'Dahua CCTV Camera',
             category: 'dstv',
-            productImage: '/images/products/dstv-dish1.jpg',
+            productImage: '/images/products/dahua-cctv-camera1.jpeg',
             description: 'Premium DSTV dishes with enhanced signal strength and durability.',
-            price: '350',
+            price: 350,
             inStock: true,
         },
         {
             id: 6,
-            productName: 'Advanced CCTV',
+            productName: 'Dahua IP Camera',
+            category: 'dstv',
+            productImage: '/images/products/dahua-ip-camera.jpeg',
+            description: 'Premium DSTV dishes with enhanced signal strength and durability.',
+            price: 350,
+            inStock: true,
+        },
+        {
+            id: 7,
+            productName: 'Dahua NVR',
             category: 'CCTVs',
-            productImage: '/images/products/camera3.jpg',
+            productImage: '/images/products/dahua-nvr.jpeg',
             description: 'Advanced CCTV systems with AI-powered detection and analytics.',
-            price: '220',
+            price: 220,
+            inStock: true,
+        },
+        {
+            id: 8,
+            productName: 'Dahua XVR',
+            category: 'Cables',
+            productImage: '/images/products/dahua-xvr.jpeg',
+            description: 'Advanced CCTV systems with AI-powered detection and analytics.',
+            price: 45,
+            inStock: true,
+        },
+        {
+            id: 9,
+            productName: 'Wireless Camera',
+            category: 'CCTVs',
+            productImage: '/images/products/wireless-camera.jpeg',
+            description: 'Advanced CCTV systems with AI-powered detection and analytics.',
+            price: 80,
+            inStock: true,
+        },
+        {
+            id: 10,
+            productName: 'Surveillance Hard Disk Drive',
+            category: 'CCTVs',
+            productImage: '/images/products/surveillance-hdd.jpeg',
+            description: 'Advanced CCTV systems with AI-powered detection and analytics.',
+            price: 80,
+            inStock: true,
+        },
+        {
+            id: 11,
+            productName: 'Coaxical Cable',
+            category: 'Cables',
+            productImage: '/images/products/coaxical-cable.jpeg',
+            description: 'Advanced CCTV systems with AI-powered detection and analytics.',
+            price: 80,
+            inStock: true,
+        },
+        {
+            id: 12,
+            productName: 'Ethernet Cable',
+            category: 'Cables',
+            productImage: '/images/products/ethernet-cable.jpeg',
+            description: 'Advanced CCTV systems with AI-powered detection and analytics.',
+            price: 80,
+            inStock: true,
+        },
+        {
+            id: 13,
+            productName: 'RJ-45 Connectors',
+            category: 'Cables',
+            productImage: '/images/products/rj-45-connectors.jpeg',
+            description: 'Advanced CCTV systems with AI-powered detection and analytics.',
+            price: 80,
             inStock: true,
         },
     ];
@@ -278,7 +342,7 @@ export default function Products(){
                     </div>
                 </div>
                 
-                <div className="min-h-screen relative pt-24 pb-12 bg-gray-100">
+                <div className="min-h-screen relative pt-24 pb-12 ">
                     {/* Filter Pane */}
                     <div className='max-w-sm md:max-w-7xl w-full mx-auto p-6 absolute left-1/2 -translate-x-1/2 -top-12 z-20 bg-white rounded-md shadow-xl'>
                         <h3 className='md:text-xl font-bold mb-4 text-blue-600'>Filters</h3>
@@ -333,9 +397,9 @@ export default function Products(){
                     </div>
 
                     {/* Products Grid */}
-                    <div className='max-w-7xl mx-auto mt-32 px-6'>
+                    <div className='mt-32 px-4 md:px-12'>
                         {filteredProducts.length > 0 ? (
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mx-4'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center mx-4'>
                                 {filteredProducts.map((product) => (
                                     <ProductCard
                                         key={product.id}
