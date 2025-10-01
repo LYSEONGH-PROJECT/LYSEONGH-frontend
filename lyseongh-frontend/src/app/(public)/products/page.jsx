@@ -9,6 +9,8 @@ import { useState } from 'react';
 import { EyeIcon, Search, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { Separator } from '@/components/ui/separator';
 
 const ProductDetails = ({ product, isOpen, onClose }) => {
     if (!isOpen) return null;
@@ -20,7 +22,7 @@ const ProductDetails = ({ product, isOpen, onClose }) => {
                 onClick={onClose}
             />
             
-            <div className='relative bg-white rounded-lg shadow-xl w-full max-w-5xl max-h-[90vh] overflow-y-auto transform transition-all duration-200 ease-out z-50'>
+            <div className='relative bg-white rounded-lg shadow-xl w-full max-w-5xl h-[600px] p-6 transition-all duration-200 ease-out z-50'>
                 <button
                     onClick={onClose}
                     className="absolute right-4 cursor-pointer top-4 p-1 bg-gray-200 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100 shadow-xl z-10"
@@ -28,20 +30,24 @@ const ProductDetails = ({ product, isOpen, onClose }) => {
                     <X size={20} />
                 </button>
 
-                <div className='h-64 relative'>
-                    <Image 
-                        className='w-full h-full object-cover'
-                        src={product.productImage}
-                        alt={product.productName}
-                        fill
-                    />
-                </div>
-                <div className='relative p-6'>
-                    <div className='border-b pb-4 flex flex-col gap-y-2'>
-                        <h3 className='text-2xl font-bold'>{product.productName}</h3>
-                        <p className='text-xl font-semibold'>${product.price}</p>
+                <div className='flex md:flex-row flex-col gap-x-1'>
+                    <div className='flex-1/2'>
+                        <Image 
+                            className='flex items-center justify-center w-full h-full object-contain'
+                            src={product.productImage}
+                            alt={product.productName}
+                            width={300}
+                            height={300}
+                        />
                     </div>
-                    <p className='mt-4 text-gray-600'>{product.description || 'No description available.'}</p>
+                    <div className='relative p-6'>
+                        <div className='pb-4 flex flex-col gap-y-3 text-blue-900 text-2xl md:text-3xl'>
+                            <h3 className=' font-bold'>{product.productName}</h3>
+                            <p className='font-semibold'>${product.price}</p>
+                        </div>
+                        <Separator />
+                        <p className='mt-4 text-gray-600'>{product.description || 'No description available.'}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -53,22 +59,29 @@ const ProductCard = ({ product, onShowDetails }) => {
 
     return (
         <div 
-            className='rounded-lg border-none h-[500px] w-full max-w-xl relative bg-transparent shadow-md hover:shadow-lg transition-shadow'
+            className='rounded-lg border-none h-[500px] w-full max-w-xl relative bg-transparent shadow-md hover:shadow-lg transition-shadow p-2'
             onMouseEnter={() => setShowDetailsButton(true)}
             onMouseLeave={() => setShowDetailsButton(false)}
             onClick={() => onShowDetails(product)}
         >
             {showDetailsButton && 
-                <div 
-                    className='bg-white w-10 h-10 rounded-full p-2 shadow-xl absolute right-2 top-2 cursor-pointer transition-all flex items-center justify-center hover:bg-gray-100 z-10'
-                    onClick={() => onShowDetails(product)}
-                >
-                    <EyeIcon className='w-5 h-5'/>
-                </div>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <div 
+                            className='bg-white w-10 h-10 rounded-full p-2 shadow-xl absolute right-2 top-2 cursor-pointer transition-all delay-75 ease-linear duration-150 flex items-center justify-center hover:bg-gray-100 z-10'
+                            onClick={() => onShowDetails(product)}
+                        >
+                            <EyeIcon className='w-5 h-5'/>
+                        </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>Show Details</p>
+                    </TooltipContent>
+                </Tooltip>
             }
             <div className='border-none h-[80%] relative'>
                 <Image 
-                    className='w-full h-full object-cover'
+                    className='w-full h-full object-contain'
                     src={product.productImage}
                     alt={product.productName}
                     fill
@@ -103,6 +116,10 @@ export default function Products(){
             }
         }
     };
+
+    const productsVariant = {
+        
+    }
 
     const products = [
         {
@@ -397,9 +414,9 @@ export default function Products(){
                     </div>
 
                     {/* Products Grid */}
-                    <div className='mt-32 px-4 md:px-12'>
+                    <div className='mt-32 px-4 max-w-full md:max-w-9/10 mx-auto'>
                         {filteredProducts.length > 0 ? (
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center mx-4'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mx-4'>
                                 {filteredProducts.map((product) => (
                                     <ProductCard
                                         key={product.id}

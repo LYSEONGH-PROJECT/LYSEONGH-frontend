@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faEnvelope, faLocationDot, faPhone, faTty } from "@fortawesome/free-solid-svg-icons";
 import { 
     faInstagram, 
     faLinkedinIn, 
@@ -62,7 +61,6 @@ export const ContactInfo = ({ title, className }) => (
         </div>
         <div className={className}>
             <div className="flex gap-x-2 items-start">
-                {/* <FontAwesomeIcon icon={faLocationDot} className="p-1 flex items-start"/> */}
                 <MapPin size={16}/>
                 <div>
                     <p className="text-sm md:text-lg">P.O.Box 6017, Accra - North</p>
@@ -70,14 +68,12 @@ export const ContactInfo = ({ title, className }) => (
                 </div>
             </div>
             <div className="flex gap-x-2 items-center">
-                {/* <FontAwesomeIcon icon={faPhone} className="p-1"/> */}
                 <PhoneIcon fill="white" size={16}/>
                 <div>
                     <p className="text-sm md:text-lg">+233543794580</p>
                 </div>
             </div>
             <div className="flex gap-x-2 items-center">
-                {/* <FontAwesomeIcon icon={faEnvelope} className="p-1"/> */}
                 <Mail size={16}/>
                 <div>
                     <p className="text-sm md:text-lg">lyseongh@gmail.com</p>

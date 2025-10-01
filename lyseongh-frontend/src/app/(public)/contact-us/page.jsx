@@ -1,6 +1,5 @@
 'use client';
 
-
 import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
@@ -13,9 +12,31 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { RequestQuoteForm } from "@/components/features/contact-page/RequestQuoteForm";
-import { ContactInfo } from "@/components/layout/public/footer";
+import { PhoneIcon,  Mail, MapPin } from "lucide-react";
+
+export const ContactInfoCard = ({ icon, label, info, className }) => {
+    return (
+        <div className={` text-white bg-white/20 backdrop-blur-sm p-4 rounded-lg ${className}`}>
+            <div className="flex items-center gap-x-2">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    {icon}
+                </div>
+                <span className="font-bold">{label}</span>
+            </div>
+            <div>
+                <p className="text-md">{info}</p>
+            </div>
+        </div>
+    )
+}
 
 export default function Contact(){
+    const contactInfos = [
+        {id: 1, icon: <PhoneIcon />, label: "Phone Number", info: "+233 543 794 580"},
+        {id: 2, icon: <Mail />, label: "Email", info: "lyseongh@gmail.com"},
+        {id: 3, icon: <MapPin />, label: "Location", info: "P.O.Box 6017, Accra - North, HM8R+722, Top Base Rd, Gbawe, Ghana", className: "col-span-full"},
+    ];
+
     const headingVariant = {
         initial: { y: 30, opacity: 0 },
         visible: {
@@ -74,11 +95,6 @@ export default function Contact(){
                                     </p>
                                 </div>
                                 
-                                {/* Contact Info */}
-                                <div className="space-y-6 mb-8">
-                                    <ContactInfo className="space-y-6" />
-                                </div>
-                                
                                 {/* Working Hours */}
                                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                                     <h3 className="text-xl font-semibold mb-6 flex items-center gap-3">
@@ -101,6 +117,19 @@ export default function Contact(){
                                             <span className="text-white">2:30 PM - 6:15 PM</span>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-4 mt-12">
+                                    {contactInfos.map((contactInfo) => {
+                                    return (
+                                    <ContactInfoCard 
+                                      key={contactInfo.id} 
+                                      icon={contactInfo.icon} 
+                                      label={contactInfo.label} 
+                                      info={contactInfo.info}
+                                      className={contactInfo.className}/> 
+                                    )
+                                    })}
                                 </div>
                             </div>
                         </div>
