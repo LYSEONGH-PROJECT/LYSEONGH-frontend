@@ -33,7 +33,7 @@ const slides = [
   },
   {
     id: 3,
-    imageSrc: '/images/home/electrical-wiring.jpg',
+    imageSrc: '/images/home/hero4.jpg',
     title: 'Electrical Wiring Experts',
     subtitle: 'Safe and reliable electrical installations',
     ctaText: 'Request Service',

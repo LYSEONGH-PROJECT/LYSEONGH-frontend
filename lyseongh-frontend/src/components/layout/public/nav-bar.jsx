@@ -74,7 +74,7 @@ const itemVariants = {
 const CompanyInfo = ({ scrolled }) => (
     <div className={`hidden md:flex justify-between py-4 px-6 border-b transition-colors duration-500 ${scrolled ? 'opacity-0 max-h-0 hidden' : 'bg-transparent opacity-100 max-h-100'}`}>
         <div className="flex justify-between gap-x-5">
-            <div className="flex items-center gap-x-3 text-gray-300">
+            <div className="flex items-center gap-x-3 text-gray-300 hover:text-white transition-all duration-75 ease-linear">
                 {/* <FontAwesomeIcon icon={faEnvelope} /> */}
                 <Mail className="w-5 h-5"/>
                 <Link href="mailto:lyseongh@gmail.com">lyseongh@gmail.com</Link>
@@ -134,7 +134,7 @@ const MobileMenu = ({ isOpen, onClose }) => (
                 >
                     <div className="flex flex-col space-y-6 p-6 mt-14">
                         {mobileNavLinks.map((link) => (
-                            <motion.div variants={itemVariants} key={link.id}>
+                            <motion.div variants={itemVariants} key={link.id} whileTap={{ scale: 0.8 }}>
                                 <Link 
                                     href={link.href} 
                                     className="text-xl font-semibold hover:text-blue-600 transition-colors"

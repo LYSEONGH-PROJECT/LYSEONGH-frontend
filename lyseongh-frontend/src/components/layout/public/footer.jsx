@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { PhoneIcon,  Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { Separator } from "@/components/ui/separator";
 
 // const pageLinks = [
 //     { id: 1, href: '/', name: 'Services' },
@@ -61,22 +62,24 @@ export const ContactInfo = ({ title, className }) => (
         </div>
         <div className={className}>
             <div className="flex gap-x-2 items-start">
-                <MapPin size={16}/>
+                <MapPin size={20} color="blue"/>
                 <div>
-                    <p className="text-sm md:text-lg">P.O.Box 6017, Accra - North</p>
-                    <p className="text-sm md:text-lg">HM8R+722, Top Base Rd, Gbawe, Ghana</p>
+                    <p className="text-sm md:text-md">P.O.Box 6017, Accra - North, <br /> HM8R+722, Top Base Rd, Gbawe, Ghana</p>
+                    {/* <p className="text-sm md:text-md">HM8R+722, Top Base Rd, Gbawe, Ghana</p> */}
                 </div>
             </div>
+            <Separator />
             <div className="flex gap-x-2 items-center">
-                <PhoneIcon fill="white" size={16}/>
+                <PhoneIcon color="blue" size={20}/>
                 <div>
-                    <p className="text-sm md:text-lg">+233543794580</p>
+                    <p className="text-sm md:text-lg font-semibold hover:text-blue-500 cursor-pointer transition-all duration-75">+233543794580</p>
                 </div>
             </div>
+            <Separator />
             <div className="flex gap-x-2 items-center">
-                <Mail size={16}/>
+                <Mail size={20} color="blue"/>
                 <div>
-                    <p className="text-sm md:text-lg">lyseongh@gmail.com</p>
+                    <p className="text-sm md:text-lg font-semibold hover:text-blue-500 cursor-pointer transition-all duration-75">lyseongh@gmail.com</p>
                 </div>
             </div>
         </div>
@@ -111,7 +114,9 @@ export function Footer(){
                 </div>
             </div>
 
-            <div className="mx-4 md:mx-6 border-t border-white/20 p-8 flex justify-start md:justify-center text-sm text-white">
+            <Separator className="text-gray-700 max-w-9/10 mx-auto"/>
+
+            <div className="mx-4 md:mx-6 p-8 flex justify-start md:justify-center text-sm text-white">
                 <p>&copy; 2025 LYSEON GH. All rights reserved.</p>
             </div>
         </footer>

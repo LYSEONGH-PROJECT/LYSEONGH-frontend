@@ -83,9 +83,9 @@ export default function Contact(){
             <div className="container mx-auto px-4 md:px-6 relative">
                 {/* Contact Card */}
                 <div className="bg-white shadow-2xl rounded-2xl -mt-16 md:-mt-32 relative z-30 overflow-hidden">
-                    <div className="grid lg:grid-cols-5 gap-0">
+                    <div className="flex flex-col-reverse md:flex-row">
                         {/* Contact Info Section */}
-                        <div className="lg:col-span-2 bg-blue-500 p-8 md:p-12 text-white relative overflow-hidden">
+                        <div className="md:flex-2/5 bg-blue-500 p-8 md:p-12 text-white relative overflow-hidden">
                             
                             <div className="relative z-10">
                                 <div className="mb-8">
@@ -135,7 +135,7 @@ export default function Contact(){
                         </div>
 
                         {/* Quote Form Section */}
-                        <div className="lg:col-span-3 p-8 md:p-12 bg-gray-50/50">
+                        <div className="md:flex-3/5 p-8 md:p-12 bg-gray-50/50">
                             <div className="max-w-2xl mx-auto">
                                 <div className="mb-8">
                                     <h2 className="text-3xl font-bold mb-4 text-gray-800">Request A Quote</h2>

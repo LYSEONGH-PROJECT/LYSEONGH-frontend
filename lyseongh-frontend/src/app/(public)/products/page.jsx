@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { useState } from 'react';
 import { EyeIcon, Search, X } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, stagger } from 'framer-motion';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Separator } from '@/components/ui/separator';
@@ -25,7 +25,7 @@ const ProductDetails = ({ product, isOpen, onClose }) => {
             <div className='relative bg-white rounded-lg shadow-xl w-full max-w-5xl h-[600px] p-6 transition-all duration-200 ease-out z-50'>
                 <button
                     onClick={onClose}
-                    className="absolute right-4 cursor-pointer top-4 p-1 bg-gray-200 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100 shadow-xl z-10"
+                    className="absolute right-4 cursor-pointer top-4 p-1 hover:text-gray-600 rounded-full z-10"
                 >
                     <X size={20} />
                 </button>
@@ -59,7 +59,7 @@ const ProductCard = ({ product, onShowDetails }) => {
 
     return (
         <div 
-            className='rounded-lg border-none h-[500px] w-full max-w-xl relative bg-transparent shadow-md hover:shadow-lg transition-shadow p-2'
+            className='rounded-lg border-none h-[500px] group w-full max-w-xl relative bg-transparent shadow-md hover:shadow-lg transition-all'
             onMouseEnter={() => setShowDetailsButton(true)}
             onMouseLeave={() => setShowDetailsButton(false)}
             onClick={() => onShowDetails(product)}
@@ -68,7 +68,7 @@ const ProductCard = ({ product, onShowDetails }) => {
                 <Tooltip>
                     <TooltipTrigger asChild>
                         <div 
-                            className='bg-white w-10 h-10 rounded-full p-2 shadow-xl absolute right-2 top-2 cursor-pointer transition-all delay-75 ease-linear duration-150 flex items-center justify-center hover:bg-gray-100 z-10'
+                            className='bg-white w-10 h-10 rounded-full p-2 absolute right-2 top-2 cursor-pointer transition-all delay-75 ease-linear duration-150 flex items-center justify-center hover:bg-gray-100 z-10'
                             onClick={() => onShowDetails(product)}
                         >
                             <EyeIcon className='w-5 h-5'/>
@@ -79,17 +79,19 @@ const ProductCard = ({ product, onShowDetails }) => {
                     </TooltipContent>
                 </Tooltip>
             }
-            <div className='border-none h-[80%] relative'>
+            <div className='relative h-[70%] overflow-hidden'>
                 <Image 
-                    className='w-full h-full object-contain'
+                    className='w-full h-full object-contain group-hover:scale-110 transition-all ease-linear duration-200'
                     src={product.productImage}
                     alt={product.productName}
                     fill
                     sizes=''
                 />
+
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 ease-linear"></div>
             </div>
-            <div className='text-center px-4 py-2 font-bold space-y-1 bg-transparent'>
-                <p className='text-blue-500 text-2xl'>{product.productName}</p>
+            <div className='text-center px-4 py-2 font-bold space-y-1 bg-transparent h-full my-auto'>
+                <p className='hover:text-blue-300 text-blue-500 transition-all ease-in duration-150 cursor-pointer text-2xl'>{product.productName}</p>
                 <span className='text-lg'>${product.price}.00</span>
             </div>
         </div>
@@ -118,8 +120,18 @@ export default function Products(){
     };
 
     const productsVariant = {
-        
-    }
+        initial: { opacity: 1 },
+        visible: { 
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.4,
+                delayChildren: 0.2,
+                ease: "linear",
+                staggerChildren: 0.3,
+            }
+         }
+    };
 
     const products = [
         {
@@ -414,17 +426,28 @@ export default function Products(){
                     </div>
 
                     {/* Products Grid */}
-                    <div className='mt-32 px-4 max-w-full md:max-w-9/10 mx-auto'>
+                    <div className='mt-32 px-4 max-w-full md:max-w-4/5 mx-auto'>
                         {filteredProducts.length > 0 ? (
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mx-4'>
+                            <motion.div 
+                            variants={productsVariant}
+                            initial="initial"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mx-4'>
                                 {filteredProducts.map((product) => (
-                                    <ProductCard
-                                        key={product.id}
-                                        product={product}
-                                        onShowDetails={handleShowDetails}
-                                    />
+                                    <motion.div
+                                    key={product.id}
+                                    variants={{
+                                        initial: { y: 30, opacity: 0 },
+                                        visible: { y: 0, opacity: 1 },
+                                    }}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                    className='w-full max-w-xl'
+                                    >
+                                        <ProductCard product={product} onShowDetails={handleShowDetails} />
+                                    </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         ) : (
                             <div className='text-center py-12'>
                                 <p className='text-xl text-gray-500'>No products found matching your criteria.</p>

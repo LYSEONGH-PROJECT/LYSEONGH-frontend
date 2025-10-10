@@ -62,16 +62,16 @@ const ServiceCard = ({ title, description, imageSrc, id }) => {
         //     </div>
         // </div>
 
-        <div className="relative max-w-xl w-full h-[500px] rounded-2xl overflow-hidden shadow-lg">
+        <div className="relative max-w-xl w-full h-[500px] rounded-lg overflow-hidden shadow-lg">
             <div className="absolute inset-0 bg-black/40 z-10" />
             <Image
                 src={imageSrc}
                 alt={title}
                 fill
-                className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
+                className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700"
                 priority
             />
-            <div className="absolute top-4 left-4 z-20 bg-white/20 backdrop-blur-sm text-white font-bold text-lg px-4 py-2 rounded-full shadow-md">
+            <div className="absolute top-4 left-4 z-20  text-white font-extrabold text-4xl px-4 py-2">
                 {id}
             </div>
             <div className="absolute bottom-0 z-20 text-white p-6">
@@ -88,73 +88,70 @@ const ServiceCard = ({ title, description, imageSrc, id }) => {
 export default function services(){
 
     const services = [
-  {
-    id: 1,
-    imageSrc: "/images/home/dstv-installation.png",
-    title: "DSTV Installation & Maintenance",
-    description:
-      "Supply, installation, and maintenance of DSTV dishes, decoders, and accessories for homes and businesses.",
-  },
-  {
-    id: 2,
-    imageSrc: "/images/home/cctv-installation.png",
-    title: "CCTV Surveillance Systems",
-    description:
-      "Professional installation of surveillance video systems, including Dahua and Hikvision NVRs, DVRs, XVRs, and analog/IP cameras.",
-  },
-  {
-    id: 3,
-    imageSrc: "/images/services/ip-camera-installation.jpeg",
-    title: "IP & Wireless Cameras",
-    description:
-      "Secure your premises with advanced IP and wireless cameras, ensuring clear monitoring and reliable performance.",
-  },
-  {
-    id: 4,
-    imageSrc: "/images/products/access-control1.jpeg",
-    title: "Access Control Systems",
-    description:
-      "Installation and maintenance of smart access control solutions for enhanced security in residential and commercial spaces.",
-  },
-  {
-    id: 5,
-    imageSrc: "/images/services/intercom-install.jpeg",
-    title: "Intercom Systems",
-    description:
-      "Clear and reliable intercom systems for communication and security within buildings and gated premises.",
-  },
-  {
-    id: 6,
-    imageSrc: "/images/services/surveillance-products.jpeg",
-    title: "Surveillance Products Supply",
-    description:
-      "Trusted supplier of surveillance HDDs, Dahua & Hikvision products, including NVRs, DVRs, XVRs, cameras, and accessories.",
-  },
-  {
-    id: 7,
-    imageSrc: "/images/home/electrical-wiring1.jpeg",
-    title: "Electrical Wiring Consulting",
-    description:
-      "Expert consulting services in electrical wiring, ensuring safe, efficient, and compliant installations.",
-  },
-  {
-    id: 8,
-    imageSrc: "/images/services/training.jpeg",
-    title: "Capacity Building & Training",
-    description:
-      "Bridging the knowledge gap by offering training and capacity building in DSTV, CCTV, access control, and related technologies.",
-  },
-  {
-    id: 9,
-    imageSrc: "/images/services/support.jpeg",
-    title: "After-Sales Support & Maintenance",
-    description:
-      "Dedicated support and maintenance services to keep your security and communication systems running smoothly.",
-  },
-];
-
-
-
+        {
+            id: 1,
+            imageSrc: "/images/home/dstv-installation.png",
+            title: "DSTV Installation & Maintenance",
+            description:
+            "Supply, installation, and maintenance of DSTV dishes, decoders, and accessories for homes and businesses.",
+        },
+        {
+            id: 2,
+            imageSrc: "/images/home/cctv-installation.png",
+            title: "CCTV Surveillance Systems",
+            description:
+            "Professional installation of surveillance video systems, including Dahua and Hikvision NVRs, DVRs, XVRs, and analog/IP cameras.",
+        },
+        {
+            id: 3,
+            imageSrc: "/images/services/ip-camera-installation.jpeg",
+            title: "IP & Wireless Cameras",
+            description:
+            "Secure your premises with advanced IP and wireless cameras, ensuring clear monitoring and reliable performance.",
+        },
+        {
+            id: 4,
+            imageSrc: "/images/products/access-control1.jpeg",
+            title: "Access Control Systems",
+            description:
+            "Installation and maintenance of smart access control solutions for enhanced security in residential and commercial spaces.",
+        },
+        {
+            id: 5,
+            imageSrc: "/images/services/intercom-install.jpeg",
+            title: "Intercom Systems",
+            description:
+            "Clear and reliable intercom systems for communication and security within buildings and gated premises.",
+        },
+        {
+            id: 6,
+            imageSrc: "/images/services/surveillance-products.jpeg",
+            title: "Surveillance Products Supply",
+            description:
+            "Trusted supplier of surveillance HDDs, Dahua & Hikvision products, including NVRs, DVRs, XVRs, cameras, and accessories.",
+        },
+        {
+            id: 7,
+            imageSrc: "/images/home/electrical-wiring1.jpeg",
+            title: "Electrical Wiring Consulting",
+            description:
+            "Expert consulting services in electrical wiring, ensuring safe, efficient, and compliant installations.",
+        },
+        {
+            id: 8,
+            imageSrc: "/images/services/training.jpeg",
+            title: "Capacity Building & Training",
+            description:
+            "Bridging the knowledge gap by offering training and capacity building in DSTV, CCTV, access control, and related technologies.",
+        },
+        {
+            id: 9,
+            imageSrc: "/images/services/support.jpeg",
+            title: "After-Sales Support & Maintenance",
+            description:
+            "Dedicated support and maintenance services to keep your security and communication systems running smoothly.",
+        },
+    ];
 
     const headingVariant = {
         initial: { y: 30, opacity: 0 },
@@ -211,16 +208,16 @@ export default function services(){
 
             <div className="px-6">
                 <div 
-                    className="mb-16 text-center rounded-lg bg-[#817d7d]"
+                    className="mb-16 text-center rounded-lg bg-[url(/images/services/engineering-team.jpg)] bg-[#817d7d] bg-cover bg-center bg-blend-multiply bg-fixed w-full h-[500px]"
                     style={{ 
-                    backgroundImage: `url("/images/services/engineering-team.jpg")`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundBlendMode: "multiply",
+                    // backgroundImage: `url("/images/services/engineering-team.jpg")`,
+                    // backgroundSize: 'cover',
+                    // backgroundPosition: 'center',
+                    // backgroundBlendMode: "multiply",
                     // backgroundColor: '#999999',
-                    width: "100%",
-                    height: '500px',
-                    backgroundAttachment: 'fixed'
+                    // width: "100%",
+                    // height: '500px',
+                    // backgroundAttachment: 'fixed'
                     }}>
                     <div className="p-14 lg:p-20 ">
                         <h3

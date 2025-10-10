@@ -38,8 +38,8 @@ export function AboutUs() {
   };
 
   return (
-    <section className="w-full py-20 lg:py-32 px-6 bg-gradient-to-br from-slate-50 to-blue-50/30">
-      <div className="container mx-auto max-w-7xl">
+    <section className="w-full py-20 lg:py-32 px-6 bg-white">
+      <div className="container mx-auto max-w-full md:max-w-4/5">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
           {/* Content Section */}
           <div className="flex-1 space-y-6">
@@ -51,7 +51,7 @@ export function AboutUs() {
                 whileInView={subHeadingVariant.animate}
                 viewport={{ once: true }}
               >
-                About Us
+                Our Story
               </motion.span>
               <motion.h2 
                 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
@@ -60,7 +60,7 @@ export function AboutUs() {
                 whileInView={headingVariant.visible}
                 viewport={{ once: true }}
               >
-                Our <span className="text-blue-600">Story</span>
+                About <span className="text-blue-600">Us</span>
               </motion.h2>
             </div>
             
@@ -88,7 +88,7 @@ export function AboutUs() {
 
           {/* Image Section */}
           <div className="flex-1 relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+            <div className=" aspect-[4/3] overflow-hidden">
               <Image
                 width={800}
                 height={600}
@@ -98,7 +98,7 @@ export function AboutUs() {
               />
               
               {/* Overlay Card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              <div className="absolute w-9/10 md:max-w-full mx-auto bottom-0 md:right-0 right-1/2 translate-x-1/2 md:translate-x-12 translate-y-6 shadow-xl bg-white p-4 md:p-6">
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                     <CheckCircle className="w-6 h-6 text-white" />

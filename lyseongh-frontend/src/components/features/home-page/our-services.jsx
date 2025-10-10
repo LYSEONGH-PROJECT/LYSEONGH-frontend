@@ -9,7 +9,7 @@ import WhyChooseUs from "./why-choose-us";
 
 const ServiceCard = ({ imageSrc, buttonText, serviceTitle, description }) => {
   return (
-    <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+    <div className="group  rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
       <div className="relative aspect-[16/10] overflow-hidden">
         <Image
           src={imageSrc}
@@ -27,7 +27,7 @@ const ServiceCard = ({ imageSrc, buttonText, serviceTitle, description }) => {
             {serviceTitle}
           </h4>
           <p className="text-gray-600 leading-relaxed line-clamp-3">
-            {description || "Professional installation and maintenance services tailored to your specific needs. Our experienced technicians ensure quality workmanship and customer satisfaction."}
+            {description}
           </p>
         </div>
       </div>
@@ -84,8 +84,8 @@ export function Services() {
   ];
 
   return (
-    <section className="">
-      <div className="container mx-auto max-w-7xl py-20 lg:py-24 px-6">
+    <section className="bg-gradient-to-br from-slate-50 to-blue-50/30">
+      <div className="container mx-auto max-w-full md:max-w-4/5 py-20 lg:py-24 px-6">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16">
           <div className="space-y-4">
@@ -137,41 +137,6 @@ export function Services() {
       </div>
 
       <WhyChooseUs />
-
-      {/* Bottom CTA */}
-      <div 
-        className="mb-16 text-center"
-        style={{ 
-          backgroundImage: `url("/images/services/engineering-team.jpg")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundBlendMode: "multiply",
-          backgroundColor: '#999999',
-          width: "100%",
-          height: '400px',
-          backgroundAttachment: 'fixed'
-          }}>
-        <div className="p-14 lg:p-20 ">
-          <motion.h3
-          className="text-3xl md:text-4xl font-bold text-white mb-4"
-          variants={subHeadingVariant}
-          initial={subHeadingVariant.initial}
-          animate={subHeadingVariant.animate}
-          viewport={{ once: true }}
-          >
-            Schedule an appointment
-          </motion.h3>
-          <p className="text-white text-md md:text-lg mb-8 max-w-2xl mx-auto">
-            Can't find what you're looking for? Our team can create tailored electrical solutions to meet your specific requirements.
-          </p>
-          <Link href="/contact-us">
-            <Button className="border-2 bg-white/10 rounded-none cursor-pointer hover:bg-white hover:text-black text-white px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
-              Contact Our Experts
-            </Button>
-          </Link>
-        </div>
-      </div>
-
     </section>
   );
 }

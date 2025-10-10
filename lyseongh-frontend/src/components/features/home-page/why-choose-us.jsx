@@ -14,20 +14,20 @@ const WhyChooseUs = () => {
     ];
 
     const subHeadingVariant = {
-    initial: {
-      y: 50,
-      opacity: 0
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-        transition: {
-        duration: 0.5,
-        delay: 0.2,
-        ease: "easeOut",
-      }
-    },
-  };
+      initial: {
+        y: 50,
+        opacity: 0
+      },
+      animate: {
+        y: 0,
+        opacity: 1,
+          transition: {
+          duration: 0.5,
+          delay: 0.2,
+          ease: "easeOut",
+        }
+      },
+    };
 
   const headingVariant = {
     initial: { y: 30, opacity: 0 },
@@ -42,11 +42,27 @@ const WhyChooseUs = () => {
     }
   };
 
+  const imageVariant = {
+    initial: {
+      y: 20,
+      opacity: 0
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        ease: "easeIn",
+        duration: 0.7,
+        delay: 0.5
+      }
+    }
+  }
+
   return (
-    <div className="w-full py-20 lg:py-32 px-6 bg-gradient-to-br from-slate-50 to-blue-50/30">
-        <div className="container mx-auto max-w-7xl">
+    <div className="w-full py-20 lg:py-32 px-2 bg-white">
+        <div className="container mx-auto max-w-full md:max-w-4/5">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
-                <div className="flex-1 space-y-6">
+                <div className="flex-1/2 space-y-6">
                     <div className="space-y-4">
                         <motion.span 
                         className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-700 border border-blue-200"
@@ -70,29 +86,50 @@ const WhyChooseUs = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6">
                         {features.map((feature, index) => (
-                          <div key={index} className="py-6 px-4 rounded-lg bg-white shadow-sm cursor-pointer hover:bg-blue-500 hover:text-white hover:shadow-xl transition-all duration-300 linear delay-75">
+                          <div key={index} className="py-6 px-4 rounded-lg bg-white shadow-sm cursor-pointer group hover:bg-blue-500 hover:shadow-xl transition-all duration-200 ease-linear">
                               <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
-                                <feature.icon className="w-8 h-8 text-blue-600" />
+                                <feature.icon className="w-8 h-8 text-blue-600 group-hover:stroke-white" />
                               </div>
-                              <span className="text-md md:text-lg font-medium ">{feature.head}</span>
-                              <p className="text-md pt-2">{feature.text}</p>
+                              <span className="text-md md:text-lg font-medium group-hover:text-white">{feature.head}</span>
+                              <p className="text-md pt-2 group-hover:text-white">{feature.text}</p>
                           </div>
                         ))}
                     </div>
                 </div>
 
-                <div className="flex-1 relative">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-700">
-                    <div className="absolute bg-black/40 inset-0 z-10"/>
-                    <Image
-                        width={800}
-                        height={600}
-                        src="/images/home/h1-banner03.jpg"
+                <motion.div 
+                  className="w-full lg:w-1/2 relative h-[400px] sm:h-[450px] lg:h-[500px]"
+                  >
+                  <div className="">
+                    <motion.div 
+                    className="absolute bottom-0 left-0 translate-x-1/2 translate-y-1/3 w-[60%] h-[80%] overflow-hidden border-[10px] border-white z-20"
+                    variants={imageVariant}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                    >
+                      <div className="absolute bg-black/20 inset-0 z-10 "/>
+                      <Image
+                        width={400}
+                        height={400}
+                        src="/images/home/electrical-wiring.jpg"
                         alt="LYSEONGH professional electrical services"
                         className="w-full h-full object-cover"
-                    />
+                      />
+                    </motion.div>
+                    
+                    <div className="absolute top-0 left-0 w-[60%] h-[80%] overflow-hidden border-[10px] border-white z-10">
+                      <div className="absolute bg-black/10 inset-0 z-10 "/>
+                      <Image 
+                        width={600}
+                        height={400}
+                        src="/images/home/best-electrician.jpeg"
+                        alt=""
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     </div>
