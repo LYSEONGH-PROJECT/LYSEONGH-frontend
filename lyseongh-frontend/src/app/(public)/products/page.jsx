@@ -68,7 +68,7 @@ const ProductCard = ({ product, onShowDetails }) => {
                 <Tooltip>
                     <TooltipTrigger asChild>
                         <div 
-                            className='bg-white w-10 h-10 rounded-full p-2 absolute right-2 top-2 cursor-pointer transition-all delay-75 ease-linear duration-150 flex items-center justify-center hover:bg-gray-100 z-10'
+                            className='bg-white w-10 h-10 rounded-full p-2 absolute right-2 top-2 shadow-lg cursor-pointer transition-all delay-75 ease-linear duration-150 flex items-center justify-center hover:bg-gray-100 z-10'
                             onClick={() => onShowDetails(product)}
                         >
                             <EyeIcon className='w-5 h-5'/>

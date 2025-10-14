@@ -23,6 +23,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PhoneIcon, MapPin, Mail } from "lucide-react";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 const mobileNavLinks = [
     { id: 1, href: '/', name: 'Home' },
@@ -97,21 +99,25 @@ const CompanyInfo = ({ scrolled }) => (
     </div>
 );
 
-const DesktopNav = ({ scrolled }) => (
-    <NavigationMenu className="hidden md:flex">
-        <NavigationMenuList className="flex justify-center gap-x-4">
-            {mobileNavLinks.map((link) => (
-                <NavigationMenuItem key={link.id}>
-                    <NavigationMenuLink asChild className="bg-none hover:bg-none focus:bg-none focus:text-blue-500 p-2">
-                        <Link href={link.href} className={`hover:text-blue-500 -tracking-wider duration-500 ease-in-out transition-colors focus:underline font-bold text-xl ${scrolled ? 'text-gray-800' : 'text-white'}`}>
-                            {link.name}
-                        </Link>
-                    </NavigationMenuLink>
-                </NavigationMenuItem>
-            ))}
-        </NavigationMenuList>
-    </NavigationMenu>
-);
+const DesktopNav = ({ scrolled }) => {
+    const pathname = usePathname()
+
+    return (
+        <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList className="flex justify-center gap-x-4">
+                {mobileNavLinks.map((link) => (
+                    <NavigationMenuItem key={link.id}>
+                        <NavigationMenuLink asChild className="bg-none hover:bg-none focus:bg-none focus:text-blue-500 p-2">
+                            <Link href={link.href} className={`hover:text-blue-500 -tracking-wider duration-500 ease-in-out transition-colors font-bold text-xl ${scrolled ? 'text-gray-800' : 'text-white'} ${pathname === link.href && 'text-blue-600 underline'}`}>
+                                {link.name}
+                            </Link>
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
+                ))}
+            </NavigationMenuList>
+        </NavigationMenu>
+    )
+};
 
 const MobileMenu = ({ isOpen, onClose }) => (
     <AnimatePresence>

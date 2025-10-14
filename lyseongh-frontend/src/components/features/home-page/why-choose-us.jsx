@@ -44,11 +44,11 @@ const WhyChooseUs = () => {
 
   const imageVariant = {
     initial: {
-      y: 20,
-      opacity: 0
+      x: 20,
+      opacity: 0.5
     },
     animate: {
-      y: 0,
+      x: 0,
       opacity: 1,
       transition: {
         ease: "easeIn",
@@ -59,13 +59,13 @@ const WhyChooseUs = () => {
   }
 
   return (
-    <div className="w-full py-20 lg:py-32 px-2 bg-white">
+    <div className="w-full h-screen py-20 lg:py-32 px-2 bg-white">
         <div className="container mx-auto max-w-full md:max-w-4/5">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
                 <div className="flex-1/2 space-y-6">
-                    <div className="space-y-4">
+                    <div className="">
                         <motion.span 
-                        className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-700 border border-blue-200"
+                        className="inline-flex items-center font-bold text-blue-700 uppercase tracking-wider"
                         variants={subHeadingVariant}
                         initial={subHeadingVariant.initial}
                         whileInView={subHeadingVariant.animate}
@@ -102,7 +102,7 @@ const WhyChooseUs = () => {
                   >
                   <div className="">
                     <motion.div 
-                    className="absolute bottom-0 left-0 translate-x-1/2 translate-y-1/3 w-[60%] h-[80%] overflow-hidden border-[10px] border-white z-20"
+                    className="absolute bottom-0 left-0 translate-x-2/3 translate-y-1/3 w-[60%] h-[80%] overflow-hidden border-[10px] border-white z-20"
                     variants={imageVariant}
                     initial="initial"
                     whileInView="animate"

@@ -43,9 +43,9 @@ export function AboutUs() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
           {/* Content Section */}
           <div className="flex-1 space-y-6">
-            <div className="space-y-4">
+            <div className="">
               <motion.span 
-                className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-700 border border-blue-200"
+                className="inline-flex items-center font-bold text-blue-700 uppercase tracking-wider"
                 variants={subHeadingVariant}
                 initial={subHeadingVariant.initial}
                 whileInView={subHeadingVariant.animate}

@@ -13,14 +13,14 @@ import { faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 
 const TestimonialCard = ({ text, customer }) => {
     return (
-        <div className="p-4 md:p-8 flex flex-col gap-y-4 border max-w-2xl">
+        <div className="p-4 md:py-8 md:px-16 flex flex-col gap-y-4 border max-w-2xl">
             <div className="">
                 {/* <Quote fill="blue" size={30} stroke="none"/> */}
-                <FontAwesomeIcon icon={faQuoteRight} color="blue" size="30" />
+                <FontAwesomeIcon icon={faQuoteRight} color="blue" size="20" />
             </div>
             <div className="mt-6 flex flex-col gap-y-4">
-                <div className="text-gray-800">
-                    <p>{text}</p>
+                <div className="">
+                    <p className="text-lg tracking-wider">{text}</p>
                 </div>
                 <div className="flex items-center gap-x-4 mt-2">
                     <div className="w-15 h-15 bg-gray-100 rounded-full p-1 flex items-center justify-center">
@@ -74,12 +74,12 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="w-full py-20 lg:py-32 px-6 bg-white">
+    <div className="w-full h-screen py-20 px-6 bg-white">
         <div className="container mx-auto max-w-full md:max-w-4/5">
             <div className="flex-1 space-y-6">
-                <div className="flex flex-col items-center justify-center space-y-4">
+                <div className="flex flex-col items-center justify-center">
                     <motion.span 
-                    className="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-700 border border-blue-200"
+                    className="font-bold text-blue-700 uppercase tracking-wider"
                     variants={subHeadingVariant}
                     initial={subHeadingVariant.initial}
                     whileInView={subHeadingVariant.animate}
@@ -104,20 +104,20 @@ const Testimonials = () => {
                     <p className="text-lg text-gray-500 text-center">The feedback from our clients speaks volumes about the quality of our services. Read how we’ve helped them with reliable solutions.</p>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-24">
                     <Swiper
-                        modules={[Autoplay, Pagination]}
+                        modules={[Autoplay]}
                         autoplay={{
-                            delay: 6000,
+                            delay: 8000,
                             disableOnInteraction: false
                         }}
-                        spaceBetween={20}
+                        spaceBetween={28}
                         slidesPerView={1}
                         breakpoints={{
                             768: { slidesPerView: 2 },
                         }}
                         loop={true}
-                        pagination={{ clickable: true }}
+                        // pagination={{ clickable: true }}
                     >
                         {testimonials.map((testimonial) => {
                             return (
