@@ -208,17 +208,7 @@ export default function services(){
 
             <div className="px-6">
                 <div 
-                    className="mb-16 text-center rounded-lg bg-[url(/images/services/engineering-team.jpg)] bg-[#817d7d] bg-cover bg-center bg-blend-multiply bg-fixed w-full h-[500px]"
-                    style={{ 
-                    // backgroundImage: `url("/images/services/engineering-team.jpg")`,
-                    // backgroundSize: 'cover',
-                    // backgroundPosition: 'center',
-                    // backgroundBlendMode: "multiply",
-                    // backgroundColor: '#999999',
-                    // width: "100%",
-                    // height: '500px',
-                    // backgroundAttachment: 'fixed'
-                    }}>
+                    className="mb-16 text-center rounded-lg bg-[url(/images/services/engineering-team.jpg)] bg-[#817d7d] bg-cover bg-center bg-blend-multiply bg-fixed w-full h-[500px]">
                     <div className="p-14 lg:p-20 ">
                         <h3
                         className="text-3xl md:text-4xl font-bold text-white mb-4"

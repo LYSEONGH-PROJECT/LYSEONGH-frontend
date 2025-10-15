@@ -62,7 +62,7 @@ export const ContactInfo = ({ title, className }) => (
         </div>
         <div className={className}>
             <div className="flex gap-x-2 items-start">
-                <MapPin size={20} color="blue"/>
+                <MapPin size={20} color="#077ce9"/>
                 <div>
                     <p className="text-sm md:text-md">P.O.Box 6017, Accra - North, <br /> HM8R+722, Top Base Rd, Gbawe, Ghana</p>
                     {/* <p className="text-sm md:text-md">HM8R+722, Top Base Rd, Gbawe, Ghana</p> */}
@@ -70,14 +70,14 @@ export const ContactInfo = ({ title, className }) => (
             </div>
             <Separator />
             <div className="flex gap-x-2 items-center">
-                <PhoneIcon color="blue" size={20}/>
+                <PhoneIcon color="#077ce9" size={20}/>
                 <div>
                     <p className="text-sm md:text-lg font-semibold hover:text-blue-500 cursor-pointer transition-all duration-75">+233543794580</p>
                 </div>
             </div>
             <Separator />
             <div className="flex gap-x-2 items-center">
-                <Mail size={20} color="blue"/>
+                <Mail size={20} color="#077ce9"/>
                 <div>
                     <p className="text-sm md:text-lg font-semibold hover:text-blue-500 cursor-pointer transition-all duration-75">lyseongh@gmail.com</p>
                 </div>
@@ -88,7 +88,7 @@ export const ContactInfo = ({ title, className }) => (
 
 export function Footer(){
     return (
-        <footer className="bg-blue-950 rounded-t-3xl relative text-white">
+        <footer className="bg-[#00378f] rounded-t-3xl relative text-white">
 
             <div className="flex flex-col md:flex-row justify-around px-6 py-12 gap-y-4">
                 <div className="max-w-xs">

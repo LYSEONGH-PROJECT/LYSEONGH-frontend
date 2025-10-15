@@ -1,5 +1,6 @@
 import { AboutUs } from "@/components/features/home-page/about-us";
 import BottomCta from "@/components/features/home-page/bottom-cta";
+import Faqs from "@/components/features/home-page/faqs";
 import { Hero } from "@/components/features/home-page/hero-section";
 import OurFeatures from "@/components/features/home-page/our-features";
 import { Services } from "@/components/features/home-page/our-services";
@@ -13,8 +14,9 @@ export default function Home() {
       <AboutUs />
       <Services />
       <OurFeatures />
-      <Testimonials />
       <BottomCta />
+      <Testimonials />
+      <Faqs />
     </div>
   );
 }
