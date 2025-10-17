@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Faqs = () => {
 
@@ -68,49 +69,62 @@ const Faqs = () => {
   ];
 
   return (
-    <div className='bg-blue-100 py-12 lg:py-20 md:h-screen'>
-      <div className='flex flex-col md:flex-row gap-x-4 container max-w-4/5 mx-auto'>
-        <div className="flex-1/2">
-          <div className="">
-            <motion.span 
-            className="inline-flex items-center font-bold text-blue-700 uppercase tracking-wider"
-            variants={subHeadingVariant}
-            initial={subHeadingVariant.initial}
-            whileInView={subHeadingVariant.animate}
-            viewport={{ once: true }}
-            >
-            FAQs
-            </motion.span>
-            <motion.h2 
-            className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
-            variants={headingVariant}
-            initial={headingVariant.initial}
-            whileInView={headingVariant.visible}
-            viewport={{ once: true }}
-            >
-            Frequenly Asked <span className="text-blue-600">Questions</span>
-            </motion.h2>
+    <div className="md:px-6 mb-3">
+
+      <div className='bg-blue-100 py-12 lg:py-32 md:min-h-auto rounded-lg'>
+        <div className='flex flex-col md:flex-row gap-x-12 container max-w-4/5 mx-auto'>
+          <div className="flex-1/3">
+            <div className="">
+              <motion.span 
+              className="inline-flex items-center font-bold text-blue-700 uppercase tracking-wider"
+              variants={subHeadingVariant}
+              initial={subHeadingVariant.initial}
+              whileInView={subHeadingVariant.animate}
+              viewport={{ once: true }}
+              >
+              FAQs
+              </motion.span>
+              <motion.h2 
+              className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+              variants={headingVariant}
+              initial={headingVariant.initial}
+              whileInView={headingVariant.visible}
+              viewport={{ once: true }}
+              >
+              Frequenly Asked <span className="text-blue-600">Questions</span>
+              </motion.h2>
+            </div>
+
+            {/* <div className="mt-6">
+              <p className="text-md text-gray-700">The feedback from our clients speaks volumes about the quality of our services. Read how we’ve helped them with reliable solutions.</p>
+            </div> */}
+
+            {/* <div className="h-[400px] w-[800px] mt-12">
+              <Image 
+                src="/images/home/electrical-wiring3.jpeg"
+                alt=""
+                width={800}
+                height={50}
+                className="w-[2/3] h-full object-cover rounded-lg"
+              />
+            </div> */}
           </div>
 
-          <div className="mt-6">
-            <p className="text-md text-gray-700">The feedback from our clients speaks volumes about the quality of our services. Read how we’ve helped them with reliable solutions.</p>
-          </div>
-        </div>
-
-        <div className="flex-1/2 mt-6 md:mt-14">
-          <div className="w-full">
-            <Accordion type="multiple" className="w-full" collapsible="true">
-              {FAQs.map((faq) => {
-                return (
-                  <AccordionItem value={faq.id} key={faq.id} className="border-b border-gray-800">
-                    <AccordionTrigger className="text-lg md:text-xl font-semibold text-gray-800">{faq.question}</AccordionTrigger>
-                    <AccordionContent className="text-lg">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                )
-              })}
-            </Accordion>
+          <div className="flex-2/3 mt-6 md:mt-0">
+            <div className="w-full">
+              <Accordion type="multiple" className="w-full" collapsible="true">
+                {FAQs.map((faq) => {
+                  return (
+                    <AccordionItem value={faq.id} key={faq.id} className="border-b border-gray-600">
+                      <AccordionTrigger className="text-lg md:text-3xl font-semibold text-gray-800 hover:no-underline cursor-pointer">{faq.question}</AccordionTrigger>
+                      <AccordionContent className="text-lg">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  )
+                })}
+              </Accordion>
+            </div>
           </div>
         </div>
       </div>

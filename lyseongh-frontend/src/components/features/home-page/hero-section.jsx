@@ -152,7 +152,6 @@ export function Hero() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Dots */}
           <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
             {slides.map((slide, index) => (
               <button

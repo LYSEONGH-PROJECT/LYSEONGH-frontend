@@ -91,9 +91,6 @@ const SearchFilter = ({ onSearch,  }) => {
     );
 };
 
-const ProductListItem = () => {
-
-}
 
 const page = () => {
   return (
