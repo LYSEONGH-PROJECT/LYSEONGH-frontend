@@ -13,7 +13,7 @@ const Faqs = () => {
 
   const subHeadingVariant = {
     initial: {
-      y: 50,
+      y: 30,
       opacity: 0
     },
     animate: {
@@ -28,7 +28,7 @@ const Faqs = () => {
   };
 
   const headingVariant = {
-    initial: { y: 30, opacity: 0 },
+    initial: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,

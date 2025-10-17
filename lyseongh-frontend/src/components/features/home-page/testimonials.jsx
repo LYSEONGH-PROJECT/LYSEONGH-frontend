@@ -38,7 +38,7 @@ const Testimonials = () => {
 
     const subHeadingVariant = {
         initial: {
-        y: 50,
+        y: 30,
         opacity: 0
         },
         animate: {
@@ -53,7 +53,7 @@ const Testimonials = () => {
     };
 
   const headingVariant = {
-    initial: { y: 30, opacity: 0 },
+    initial: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -75,7 +75,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="w-full h-screen pt-4 md:py-20 px-6 bg-white">
+    <div className="w-full h-screen pt-4 md:py-20 px-6 bg-white mb-4">
         <div className="container mx-auto max-w-full md:max-w-4/5">
             <div className="flex-1 space-y-6">
                 <div className="flex flex-col items-center justify-center">

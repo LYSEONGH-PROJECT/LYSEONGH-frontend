@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center overflow-hidden">
       <Hero />
       <AboutUs />
       <Services />

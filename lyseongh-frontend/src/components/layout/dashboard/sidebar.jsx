@@ -24,11 +24,11 @@ import {
 import Link from "next/link";
 
 const menuItems = [
-  { id: 'home', label: 'Home', icon: LayoutDashboard, href: '/dashboard' },
-  { id: 'products', label: 'Products', icon: Package, href: '/dashboard/products' },
-  { id: 'services', label: 'Services', icon: Wrench, href: '/dashboard/services' },
-  { id: 'projects', label: 'Projects', icon: FileText, href: '/dashboard/projects' },
-  { id: 'settings', label: 'Settings', icon: Settings, href: '/dashboard/settings' }
+  { id: 'home', label: 'Home', icon: LayoutDashboard, href: '/admin' },
+  { id: 'products', label: 'Products', icon: Package, href: '/admin/products' },
+  { id: 'services', label: 'Services', icon: Wrench, href: '/admin/services' },
+  { id: 'projects', label: 'Projects', icon: FileText, href: '/admin/projects' },
+  { id: 'settings', label: 'Settings', icon: Settings, href: '/admin/settings' }
 ];
 
 

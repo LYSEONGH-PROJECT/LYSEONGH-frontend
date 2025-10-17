@@ -18,7 +18,7 @@ const AdminLogin = () => {
       ...prev,
       [name]: value
     }));
-    // Clear error when user starts typing
+
     if (error) setError('');
   };
 
@@ -66,7 +66,7 @@ const AdminLogin = () => {
         </div>
 
         {/* Login Form */}
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
+        <div className="bg-white p-8">
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-2">Welcome Back</h2>
             <p className="text-gray-600">Sign in to access your dashboard</p>
